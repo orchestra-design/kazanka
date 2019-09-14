@@ -1,9 +1,13 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
+import { IndexBody } from '../components/index-body/index'
+import { Layout } from '../components/layout/index'
+
 function IndexPage({ data }) {
-  console.log(data)
-  return <div>Poop</div>
+  return ( <Layout>
+    <IndexBody data={data.prismicIndex.data} />
+  </Layout>)
 }
 
 export const pageQuery = graphql`
@@ -11,16 +15,19 @@ export const pageQuery = graphql`
     prismicIndex {
       data {
         body {
-          ... on PrismicIndexBodyBlock {
-            primary {
-              name
-            }
-          }
           ... on PrismicIndexBodyImage {
             primary {
+              name
               imageimage {
                 alt
                 url
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1920, quality: 80, jpegProgressive: true) {
+                      ...GatsbyImageSharpFluid_noBase64
+                    }
+                  }
+                }
               }
             }
           }
@@ -36,6 +43,19 @@ export const pageQuery = graphql`
             items {
               videosrc {
                 html
+                thumbnail_url
+                title
+              }
+            }
+          }
+        }
+        image {
+          url
+          alt
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1920, quality: 80, jpegProgressive: true) {
+                ...GatsbyImageSharpFluid_noBase64
               }
             }
           }
@@ -43,13 +63,9 @@ export const pageQuery = graphql`
         description {
           html
         }
-        image {
-          alt
-          url
-        }
-        seodescription
-        seokeywords
         tag
+        seokeywords
+        seodescription
         title {
           text
         }

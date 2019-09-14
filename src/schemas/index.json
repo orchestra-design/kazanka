@@ -82,11 +82,11 @@
             },
             "repeat": {}
           },
-          "block": {
+          "image": {
             "type": "Slice",
-            "fieldset": "Block",
-            "description": "Site Block",
-            "icon": "add_circle_outline",
+            "fieldset": "Image",
+            "description": "Image",
+            "icon": "image",
             "display": "list",
             "non-repeat": {
               "name": {
@@ -95,17 +95,7 @@
                   "label": "Name",
                   "placeholder": "Name"
                 }
-              }
-            },
-            "repeat": {}
-          },
-          "image": {
-            "type": "Slice",
-            "fieldset": "Image",
-            "description": "Image",
-            "icon": "image",
-            "display": "list",
-            "non-repeat": {
+              },
               "imageimage": {
                 "type": "Image",
                 "config": {
@@ -115,7 +105,16 @@
                 }
               }
             },
-            "repeat": {}
+            "repeat": {
+              "imageimages": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "imageimages"
+                }
+              }
+            }
           }
         }
       }

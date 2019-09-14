@@ -11,3 +11,11 @@ exports.onCreateBabelConfig = ({ actions }) => {
     name: '@emotion/babel-preset-css-prop',
   })
 }
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    node: {
+      fs: 'empty',
+    },
+  })
+}
