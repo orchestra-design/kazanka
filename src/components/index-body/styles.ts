@@ -2,7 +2,6 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import tw from 'tailwind.macro'
 
-
 export const mainStyles = css`
   ${tw`
     w-full
@@ -30,6 +29,7 @@ export const titleStyles = css`
 export const sectionStyles = css`
   ${tw`
     my-10 pb-40
+    relative
   `};
 `
 
@@ -49,7 +49,7 @@ export const TextContainer = styled.div`
     text-center
   `};
 
-& h1 {
+  & h1 {
     ${headingStyles};
     ${tw`
       text-3xl sm:text-5xl
@@ -79,5 +79,42 @@ export const TextContainer = styled.div`
         pb-4
     `};
     }
+  }
+`
+
+export const imageStyles = css`
+  ${tw`w-full`};
+  &::after {
+    ${tw`block absolute inset-0`};
+    content: '';
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.25) 50%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  }
+`
+
+export const imageSectionStyles = css`
+  ${tw`relative w-full`};
+`
+
+export const buttonWrapperStyles = css`
+  ${tw`
+    absolute inset-0
+    flex items-center justify-center
+  `};
+`
+
+export const videoFrameStyles = css`
+  ${tw`relative`};
+  padding-bottom: ${(1080 / 1920) * 100}%;
+
+  & iframe {
+    ${tw`
+      absolute inset-0
+      w-full h-full
+    `};
   }
 `

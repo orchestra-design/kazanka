@@ -15,6 +15,7 @@ export const pageQuery = graphql`
     prismicIndex {
       data {
         body {
+          __typename
           ... on PrismicIndexBodyImage {
             primary {
               name
@@ -24,6 +25,19 @@ export const pageQuery = graphql`
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 1920, quality: 80, jpegProgressive: true) {
+                      ...GatsbyImageSharpFluid_noBase64
+                    }
+                  }
+                }
+              }
+            }
+            items {
+              imageimages {
+                alt
+                url
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 360, quality: 80, jpegProgressive: true) {
                       ...GatsbyImageSharpFluid_noBase64
                     }
                   }

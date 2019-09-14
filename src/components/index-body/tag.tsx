@@ -6,9 +6,10 @@ import tw from 'tailwind.macro'
 import { Tag } from '../tag/index'
 
 export function StickedTag({
+  tag,
   noStick,
   ...props
-}: Readonly<{ noStick?: number }>) {
+}: Readonly<{ tag: string; noStick?: number }>) {
   const [ref, inView] = useInView({
     threshold: 0,
   })

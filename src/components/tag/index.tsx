@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 import { tagStyles } from './styles'
 
 export type Props = Readonly<{
-  tag?: string
+  tag: string
   color?: string
   styles?: any
 }>

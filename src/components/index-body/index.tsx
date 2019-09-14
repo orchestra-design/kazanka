@@ -5,6 +5,7 @@ import { HTML } from '../html/index'
 
 import { StickedTag } from './tag'
 import { Back } from './back'
+import { Body } from './body'
 import {
   mainStyles,
   jumboStyles,
@@ -14,8 +15,8 @@ import {
 } from './styles'
 
 export function IndexBody({ data }) {
-  console.log(data)
   const image = get(data, 'image')
+  const body = get(data, 'body')
   const tag = get(data, 'tag', '')
   const title = get(data, 'title.text', '')
   const description = get(data, 'description.html')
@@ -33,6 +34,7 @@ export function IndexBody({ data }) {
           </TextContainer>
           <StickedTag tag={tag} color="#60B2FF" noStick />
         </div>
+        <Body body={body} />
       </main>
     </div>
   )
