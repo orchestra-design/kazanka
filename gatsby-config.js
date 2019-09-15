@@ -33,13 +33,13 @@ module.exports = {
         allExtensions: true, // defaults to false
       },
     },
-    // `gatsby-plugin-netlify-cache`,
+    `gatsby-plugin-netlify-cache`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     `gatsby-transformer-sharp`,
-    // {
-    //   resolve: `gatsby-plugin-sitemap`,
-    // },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+    },
     // {
     //   resolve: 'gatsby-plugin-manifest',
     //   options: {
@@ -52,13 +52,13 @@ module.exports = {
     //     icon: utilsIcon, // This path is relative to the root of the site.
     //   },
     // },
-    // {
-    //   resolve: 'gatsby-plugin-netlify',
-    //   options: {
-    //     mergeSecurityHeaders: true,
-    //     mergeLinkHeaders: true,
-    //     mergeCachingHeaders: true,
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        mergeSecurityHeaders: true,
+        mergeLinkHeaders: true,
+        mergeCachingHeaders: true,
+      },
+    },
   ],
 }

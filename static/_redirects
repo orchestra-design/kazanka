@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+https://orchestra-kazanka.netlify.com/* https://kazanka.orchestra-design.com/:splat 301!
