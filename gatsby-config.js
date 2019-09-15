@@ -5,7 +5,8 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Poop'
+    title: 'Kazanka',
+    siteUrl: 'https://kazanka.orchestra-design.com',
   },
   plugins: [
     {
