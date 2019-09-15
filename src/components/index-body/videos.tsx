@@ -19,7 +19,7 @@ export function Videos({ items }) {
       css={css`
         ${tw`
           w-full h-full      
-          p-8
+          px-8 py-12
         `};
         background-color: #09234a;
       `}
@@ -32,7 +32,6 @@ export function Videos({ items }) {
             mx-auto
             w-full max-w-3xl
           `};
-          max-height: 80vh;
         `}
       >
         <HTML

@@ -9,7 +9,7 @@ export type Props = Readonly<{
   styles?: any
 }>
 
-export function Tag({ tag, color = "#FF490F", styles }: Props) {
+export function Tag({ tag, color = '#FF490F', styles }: Props) {
   return (
     <svg
       css={css`
@@ -17,11 +17,12 @@ export function Tag({ tag, color = "#FF490F", styles }: Props) {
         ${styles};
       `}
       title={tag}
-      viewBox="0 0 285 119"
+      viewBox="0 0 290 125"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g id="block">
+        <path id="shadow" d="M0 49.362L285 0V69.5L0 118.862V49.362Z" />
         <path
           id="rect"
           d="M0 49.362L285 0V69.5L0 118.862V49.362Z"

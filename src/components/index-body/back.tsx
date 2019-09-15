@@ -13,6 +13,7 @@ export function Back({ image }) {
           w-screen h-screen
           overflow-hidden
         `};
+        top: 0;
         &::after,
         &::before {
           ${tw`

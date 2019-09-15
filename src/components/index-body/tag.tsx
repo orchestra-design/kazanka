@@ -32,6 +32,10 @@ export function StickedTag({
           max-width: ${!noStick && !inView && '200px'};
           top: ${!noStick && !inView && '2em'};
           z-index: ${!noStick && !inView && 1000};
+          & #shadow {
+            fill: ${!noStick && !inView && 'rgba(0, 0, 0, 0.5)'};
+            transform: translate(0, 3px) scale(1.025);
+          }
         `}
         {...props}
       />

@@ -44,7 +44,7 @@ export const headingStyles = css`
 export const TextContainer = styled.div`
   ${tw`
     mx-auto
-    w-screen max-w-xl
+    w-full max-w-xl
     subpixel-antialiased
     text-center
   `};
@@ -117,4 +117,32 @@ export const videoFrameStyles = css`
       w-full h-full
     `};
   }
+`
+
+export const rowStyles = css`
+  ${tw`
+    items-center
+  `};
+`
+
+export const imagesStyles = css`
+  ${tw`
+    px-8 pt-12
+    w-full max-w-xl
+    mx-auto
+  `};
+`
+
+export const linksStyles = css`
+  ${tw`
+    py-12
+  `};
+`
+
+export const frameStyles = css`
+  ${tw`
+    mt-8
+    w-full h-screen
+    bg-gray-400
+  `};
 `
