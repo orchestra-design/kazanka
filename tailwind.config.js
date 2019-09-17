@@ -229,7 +229,7 @@ module.exports = {
         '"Courier New"',
         'monospace',
       ],
-      sans: ['Open Sans', 'sans-serif'],
+      sans: ['Sofia Pro', 'sans-serif'],
       serif: ['IBM Plex Sans', 'serif'],
     },
     fontSize: {
