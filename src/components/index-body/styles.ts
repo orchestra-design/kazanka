@@ -18,12 +18,10 @@ export const jumboStyles = css`
 
 export const titleStyles = css`
   ${tw`
-    font-bold
-    text-3xl sm:text-5xl
-    text-white text-center
-    pb-10
+    w-4/5
+    max-w-xl
   `};
-  text-shadow: 0px 0px 10px #1f5fc2;
+  padding-bottom: 20vh;
 `
 
 export const sectionStyles = css`

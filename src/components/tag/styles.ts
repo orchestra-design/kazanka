@@ -1,5 +1,4 @@
 import { css } from '@emotion/core'
-import tw from 'tailwind.macro'
 
 export const tagStyles = css`
   width: 10em;

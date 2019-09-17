@@ -89,6 +89,13 @@
               }
             },
             "repeat": {
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name",
+                  "placeholder": "Name"
+                }
+              },
               "link": {
                 "type": "Link",
                 "config": {

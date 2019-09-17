@@ -1,10 +1,32 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
 import tw from 'tailwind.macro'
+import { useUpdateEffect, useVideo } from 'react-use'
 
 import { Img } from '../img/index'
+import { Shape } from '../shape/index'
 
-export function Back({ image }) {
+export function Back({ image, video }) {
+  const [VideoBlock, state, controls] = useVideo(
+    <video
+      src={video.url}
+      autoPlay
+      loop
+      muted
+      type="video/mp4"
+    />
+  );
+
+  useUpdateEffect(async () => {
+    if (state.paused) {
+      try {
+        await controls.play()
+      } catch (ignore) {
+        // ignore
+      }
+    }
+  }, [state.paused])
+
   return (
     <div
       css={css`
@@ -14,24 +36,6 @@ export function Back({ image }) {
           overflow-hidden
         `};
         top: 0;
-        &::after,
-        &::before {
-          ${tw`
-            block
-            absolute inset-0 top-auto
-            w-full
-            bg-white
-          `};
-          content: '';
-          height: 30rem;
-          z-index: 1;
-        }
-        &::before {
-          transform: rotateZ(-10deg)  translate(10%, 95%);
-        }
-        &::after {
-          transform: rotateZ(10deg) translate(-10%, 95%);
-        }
       `}
     >
       <div
@@ -40,11 +44,7 @@ export function Back({ image }) {
           &::after {
             ${tw`block absolute inset-0`};
             content: '';
-            background: linear-gradient(
-              180deg,
-              rgba(49, 101, 181, 0) 0%,
-              rgba(49, 101, 181, 100) 100%
-            );
+            background: linear-gradient(180deg, rgba(41, 178, 192, 0) 0%, rgba(41, 178, 192, 1) 100%);
           }
         `}
       >
@@ -54,7 +54,39 @@ export function Back({ image }) {
             ${tw`w-full h-full`};
           `}
         />
+        <div
+          css={css`
+            ${tw`
+              absolute
+              w-screen h-screen
+              inset-0
+              opacity-0
+            `};
+            ${!state.paused && tw`opacity-100`};
+            transition: opacity 200ms ease-in-out;
+            & > video {
+              ${tw`
+                block
+                absolute inset-0
+                w-screen h-screen
+              `};
+              object-fit: cover;
+            }
+          `}
+        >
+          {VideoBlock}
+        </div>
+        <Shape
+          css={css`
+            ${tw`
+              absolute
+              w-full
+              z-10
+            `};
+            bottom: -1.5em;
+          `}
+        />
       </div>
-    </div>
+    </div >
   )
 }

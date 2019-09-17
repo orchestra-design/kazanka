@@ -10,6 +10,16 @@ module.exports = {
       xl: '1280px',
     },
     colors: {
+      theme: {
+        blue: '#265E8E',
+        green: '#11A193',
+        indigo: '#0D134A',
+        orange: '#F6936B',
+        red: '#EE5658',
+        teal: '#29B2C0',
+        yellow: '#F8E173',
+      },
+      
       transparent: 'transparent',
 
       black: '#000',

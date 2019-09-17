@@ -17,28 +17,7 @@ export function Footer({ text }) {
           relative
         `};
         bottom: 0;
-        &,
-        &::after,
-        &::before {
-          background-color: #60b2ff;
-        }
-        &::after,
-        &::before {
-          ${tw`
-            block
-            absolute inset-0 bottom-auto
-            w-full
-          `};
-          content: '';
-          height: 30rem;
-          z-index: 1;
-        }
-        &::before {
-          transform: rotateZ(-10deg) translate(10%);
-        }
-        &::after {
-          transform: rotateZ(10deg) translate(-10%);
-        }
+        background-color: #60b2ff;
       `}
     >
       <TextContainer css={css`${tw`relative z-10`}`}>

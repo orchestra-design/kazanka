@@ -5,7 +5,7 @@ import { get } from 'lodash'
 export const Row = styled.div`
   ${tw`
     flex flex-row flex-wrap
-    items-start justify-between
+    items-start justify-center
   `};
   box-sizing: border-box;
 

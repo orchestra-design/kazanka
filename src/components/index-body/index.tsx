@@ -2,8 +2,9 @@ import * as React from 'react'
 import { get } from 'lodash'
 
 import { HTML } from '../html/index'
+import { Logo } from '../logo/index'
 
-import { StickedTag } from './tag'
+import { BodyTag } from './tag'
 import { Back } from './back'
 import { Body } from './body'
 import {
@@ -16,23 +17,25 @@ import {
 
 export function IndexBody({ data }) {
   const image = get(data, 'image')
+  const video = get(data, 'video')
   const body = get(data, 'body')
   const tag = get(data, 'tag', '')
   const title = get(data, 'title.text', '')
   const description = get(data, 'description.html')
   return (
     <div>
-      <Back image={image} />
+      <Back image={image} video={video} />
       <main css={mainStyles}>
         <div css={jumboStyles}>
-          <h1 css={titleStyles}>{title}</h1>
-          <StickedTag tag={tag} />
+          <Logo css={titleStyles} title={title} color="#FFF" />
+          <h1 hidden>{title}</h1>
+          <BodyTag tag={tag} />
         </div>
         <div css={sectionStyles}>
           <TextContainer>
             <HTML>{description}</HTML>
           </TextContainer>
-          <StickedTag tag={tag} color="#60B2FF" noStick />
+          <BodyTag tag={tag} textColor="#0D134A" />
         </div>
         <Body body={body} />
       </main>

@@ -10,9 +10,9 @@ export function Images({ items }) {
   if (!items) return null
   return (
     <section css={imagesStyles}>
-      <Row css={rowStyles}>
+      <Row css={rowStyles} gap={1.5}>
         {items.map(({ imageimages }) => (
-          <Col key={uuid()} cols={3}>
+          <Col key={uuid()} cols={3} gap={1.5}>
             <Img css={imageSectionStyles} src={imageimages} />
           </Col>
         ))}
