@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { Global } from '@emotion/core'
 
-import '../../fonts/open-sans/stylesheet.css'
-import '../../fonts/plex/stylesheet.css'
+import '../../fonts/sofia/stylesheet.css'
 import './globals.css'
 
 import globalStyles from './global'

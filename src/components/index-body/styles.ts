@@ -18,7 +18,7 @@ export const jumboStyles = css`
 
 export const titleStyles = css`
   ${tw`
-    font-serif font-bold
+    font-bold
     text-3xl sm:text-5xl
     text-white text-center
     pb-10

@@ -35,6 +35,14 @@
         "label": "Image"
       }
     },
+    "video": {
+      "type": "Link",
+      "config": {
+        "select": "media",
+        "label": "Video",
+        "placeholder": "Video"
+      }
+    },
     "body": {
       "type": "Slices",
       "fieldset": "Slice zone",
@@ -80,7 +88,16 @@
                 }
               }
             },
-            "repeat": {}
+            "repeat": {
+              "link": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Link",
+                  "placeholder": "Link"
+                }
+              }
+            }
           },
           "image": {
             "type": "Slice",

@@ -229,8 +229,8 @@ module.exports = {
         '"Courier New"',
         'monospace',
       ],
-      sans: ['Sofia Pro', 'sans-serif'],
-      serif: ['IBM Plex Sans', 'serif'],
+      sans: ['"Sofia Pro"', 'sans-serif'],
+      serif: ['serif'],
     },
     fontSize: {
       xxs: '0.625rem',

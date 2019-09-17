@@ -10,7 +10,7 @@ export const outlinedTemplate = css`
     outline-none focus:outline-none
     select-none
     uppercase
-    font-serif font-bold
+    font-bold
   `};
   box-sizing: border-box;
   transition: all 200ms ease-in-out;
