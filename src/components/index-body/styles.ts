@@ -122,6 +122,7 @@ export const TextContainer = styled.div`
   & p {
     ${tw`
       text-sm
+      text-justify
     `};
     &:not(:last-of-type) {
       ${tw`

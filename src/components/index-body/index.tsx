@@ -29,7 +29,7 @@ export function IndexBody({ data }) {
         <div css={jumboStyles}>
           <Logo css={titleStyles} title={title} color="#FFF" />
           <h1 hidden>{title}</h1>
-          <BodyTag tag={tag} />
+          <BodyTag tag={tag} textColor="#0D134A" />
         </div>
         <div css={sectionStyles}>
           <TextContainer>

@@ -20,6 +20,7 @@ export function Videos({ items }) {
         ${tw`
           w-full h-full      
           px-8 py-12
+          mt-16
         `};
         background-color: #09234a;
       `}

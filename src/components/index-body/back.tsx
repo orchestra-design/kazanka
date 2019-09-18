@@ -5,7 +5,7 @@ import tw from 'tailwind.macro'
 import { Img } from '../img/index'
 import { Shape } from '../shape/index'
 
-import { BackVideo } from "./back-video"
+// import { BackVideo } from "./back-video"
 
 export function Back({ image, video }) {
   return (
@@ -35,7 +35,7 @@ export function Back({ image, video }) {
             ${tw`w-full h-full`};
           `}
         />
-        <BackVideo video={video} />
+        {/* <BackVideo video={video} /> */}
         <Shape
           css={css`
             ${tw`
