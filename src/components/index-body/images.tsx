@@ -1,5 +1,7 @@
 import * as React from 'react'
 import * as uuid from 'uuid/v1'
+import { css } from '@emotion/core'
+import tw from 'tailwind.macro'
 
 import { Img } from '../img/index'
 import { Row, Col } from '../row/index'
@@ -13,7 +15,7 @@ export function Images({ items }) {
       <Row css={rowStyles} gap={1.5}>
         {items.map(({ imageimages }) => (
           <Col key={uuid()} cols={3} gap={1.5}>
-            <Img css={imageSectionStyles} src={imageimages} />
+            <Img css={css`${tw`w-full`};`} src={imageimages} />
           </Col>
         ))}
       </Row>

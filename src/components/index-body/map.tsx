@@ -4,6 +4,7 @@ import tw from 'tailwind.macro'
 import { useLockBodyScroll } from 'react-use'
 
 import { Button } from '../button/index'
+import { Pattern } from '../pattern/index'
 import { Popup } from '../popup/index'
 import { HTML } from '../html/index'
 
@@ -16,6 +17,17 @@ export function Map({ text, opened, togglePopup }) {
 
   return (
     <Popup>
+      <Pattern
+        css={css`
+          ${tw`
+            absolute
+            w-1/5
+          `};
+          top: 0;
+          left: 0;
+          transform: translate(-1rem, -1rem) rotateZ(180deg);
+        `}
+      />
       <Button
         css={css`
           ${tw`absolute`};
@@ -27,8 +39,29 @@ export function Map({ text, opened, togglePopup }) {
       >
         Закрыть
       </Button>
-      <TextContainer>
-        <HTML>{text}</HTML>
+      <TextContainer
+        css={css`
+          & span {
+            text-transform: uppercase;
+          }
+          & .red {
+            ${tw`text-theme-red`};
+          }
+          & .blue {
+            ${tw`text-theme-blue`};
+          }
+          & .yellow {
+            ${tw`text-theme-orange`};
+          }
+        `}
+      >
+        <HTML>
+          {text
+            .replace('красные', '<span class="red">красные</span>')
+            .replace('синие', '<span class="blue">синие</span>')
+            .replace('желтые', '<span class="yellow">желтые</span>')
+          }
+        </HTML>
       </TextContainer>
       <iframe
         css={frameStyles}

@@ -2,6 +2,8 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import tw from 'tailwind.macro'
 
+import * as frame from './frame.svg'
+
 export const mainStyles = css`
   ${tw`
     w-full
@@ -36,7 +38,31 @@ export const headingStyles = css`
     font-sans
     font-bold
     leading-tight
+    text-theme-indigo
   `};
+`
+
+export const frameHeadingStyles = css`
+  ${tw`
+    inline-flex flex-row flex-no-wrap
+    items-center justify-center
+  `};
+
+  &::before,
+  &::after {
+    ${tw`
+      block flex-1
+      h-full
+      bg-center bg-contain bg-no-repeat
+      text-transparent
+      mx-2
+    `};
+    background-image: url(${frame});
+    content: '.......';
+  }
+  &::before {
+    transform: rotateZ(180deg)
+  }
 `
 
 export const TextContainer = styled.div`
@@ -45,10 +71,13 @@ export const TextContainer = styled.div`
     w-full max-w-xl
     subpixel-antialiased
     text-center
+    relative
+    px-4
   `};
 
   & h1 {
     ${headingStyles};
+    ${frameHeadingStyles};
     ${tw`
       text-3xl sm:text-5xl
       pt-12 pb-6
@@ -56,6 +85,7 @@ export const TextContainer = styled.div`
   }
   & h2 {
     ${headingStyles};
+    ${frameHeadingStyles};
     ${tw`
       text-2xl sm:text-3xl
       pt-10 pb-5
@@ -68,10 +98,48 @@ export const TextContainer = styled.div`
       pt-8 pb-4
     `};
   }
+  & h4 {
+    ${tw`
+      font-semibold
+      text-lg
+      pt-6 pb-3
+    `};
+  }
+  & h5 {
+    ${tw`
+      font-semibold
+      text-md
+      pt-4 pb-2
+    `};
+  }
+  & h6 {
+    ${tw`
+      font-semibold
+      text-sm
+      pt-2 pb-1
+    `};
+  }
   & p {
     ${tw`
       text-sm
     `};
+    &:not(:last-of-type) {
+      ${tw`
+        pb-4
+    `};
+    }
+  }
+  & ul {
+    ${tw`
+      text-left
+      py-4
+    `};
+  }
+  & li {
+    ${tw`
+      text-sm
+    `};
+    text-indent: 3rem;
     &:not(:last-of-type) {
       ${tw`
         pb-4
@@ -95,7 +163,10 @@ export const imageStyles = css`
 `
 
 export const imageSectionStyles = css`
-  ${tw`relative w-full`};
+  ${tw`
+    relative w-full
+    my-16
+  `};
 `
 
 export const buttonWrapperStyles = css`

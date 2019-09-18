@@ -77,7 +77,7 @@ export function Button({
         color: ${inverted ? '#fff' : `${color}  !important`};
         color: ${contrast && inverted && '#000 !important'};
         font-size: ${size}rem;
-        padding: ${size * 0.5}rem ${size}rem;
+        padding: ${size * 0.5}rem ${size}rem ${size * 0.25}rem;
         /* disabled */
         background-color: ${disabled && inverted && '#a0aec0'};
         border-color: ${disabled && '#a0aec0'};

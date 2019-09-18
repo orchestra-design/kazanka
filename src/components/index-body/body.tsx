@@ -67,7 +67,13 @@ export function Body({ body }) {
             )
           }
           if (primary.name === 'links') {
-            return <Footer key={uuid()} text={get(primary, 'text.html')} />
+            return (
+              <Footer
+                key={uuid()}
+                text={get(primary, 'text.html')}
+                items={items}
+              />
+            )
           }
           return (
             <section key={uuid()}>

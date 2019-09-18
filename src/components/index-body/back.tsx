@@ -1,32 +1,13 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
 import tw from 'tailwind.macro'
-import { useUpdateEffect, useVideo } from 'react-use'
 
 import { Img } from '../img/index'
 import { Shape } from '../shape/index'
 
+import { BackVideo } from "./back-video"
+
 export function Back({ image, video }) {
-  const [VideoBlock, state, controls] = useVideo(
-    <video
-      src={video.url}
-      autoPlay
-      loop
-      muted
-      type="video/mp4"
-    />
-  );
-
-  useUpdateEffect(async () => {
-    if (state.paused) {
-      try {
-        await controls.play()
-      } catch (ignore) {
-        // ignore
-      }
-    }
-  }, [state.paused])
-
   return (
     <div
       css={css`
@@ -54,28 +35,7 @@ export function Back({ image, video }) {
             ${tw`w-full h-full`};
           `}
         />
-        <div
-          css={css`
-            ${tw`
-              absolute
-              w-screen h-screen
-              inset-0
-              opacity-0
-            `};
-            ${!state.paused && tw`opacity-100`};
-            transition: opacity 200ms ease-in-out;
-            & > video {
-              ${tw`
-                block
-                absolute inset-0
-                w-screen h-screen
-              `};
-              object-fit: cover;
-            }
-          `}
-        >
-          {VideoBlock}
-        </div>
+        <BackVideo video={video} />
         <Shape
           css={css`
             ${tw`
@@ -83,7 +43,8 @@ export function Back({ image, video }) {
               w-full
               z-10
             `};
-            bottom: -1.5em;
+            bottom: 0;
+            transform: translateY(20%);
           `}
         />
       </div>

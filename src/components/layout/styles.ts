@@ -5,6 +5,5 @@ export const layoutStyles = css`
   ${tw`
     relative
     w-full
-    overflow-hidden
   `};
 `
