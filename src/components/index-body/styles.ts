@@ -18,14 +18,6 @@ export const jumboStyles = css`
   `};
 `
 
-export const titleStyles = css`
-  ${tw`
-    w-4/5
-    max-w-xl
-  `};
-  padding-bottom: 20vh;
-`
-
 export const sectionStyles = css`
   ${tw`
     my-10 pb-40

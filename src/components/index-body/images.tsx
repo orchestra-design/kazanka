@@ -6,15 +6,15 @@ import tw from 'tailwind.macro'
 import { Img } from '../img/index'
 import { Row, Col } from '../row/index'
 
-import { imagesStyles, rowStyles, imageSectionStyles } from './styles'
+import { imagesStyles, rowStyles } from './styles'
 
 export function Images({ items }) {
   if (!items) return null
   return (
     <section css={imagesStyles}>
-      <Row css={rowStyles} gap={1.5}>
+      <Row css={rowStyles} gaps={[1, 0.5]}>
         {items.map(({ imageimages }) => (
-          <Col key={uuid()} cols={3} gap={1.5}>
+          <Col key={uuid()} cols={3} gaps={[1, 0.5]}>
             <Img css={css`${tw`w-full`};`} src={imageimages} />
           </Col>
         ))}

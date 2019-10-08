@@ -32,6 +32,7 @@ export function Footer({ text, items }) {
         ${tw`
           w-full
           py-10
+          mt-10
           relative
           bg-theme-teal
         `};
@@ -62,7 +63,7 @@ export function Footer({ text, items }) {
       </TextContainer>
       <Row
         css={css`
-          ${tw`mt-16`};
+          ${tw`mt-10`};
         `}
         gap={1.5}
       >

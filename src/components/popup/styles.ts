@@ -15,7 +15,7 @@ export const popupStyles = css`
     flex flex-col
     items-center justify-center
     bg-white
-    mx-2 my-4
+    m-4
     pt-10
     overflow-y-auto
   `};
