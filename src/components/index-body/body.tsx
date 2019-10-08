@@ -13,8 +13,10 @@ import { Map } from './map'
 import { Videos } from './videos'
 import {
   imageStyles,
+  imgStyles,
   imageSectionStyles,
   buttonWrapperStyles,
+  buttonStyles,
   TextContainer,
 } from './styles'
 
@@ -34,13 +36,15 @@ export function Body({ body }) {
             return (
               <section key={uuid()} css={imageSectionStyles}>
                 <div css={imageStyles}>
-                  <Img src={primary.imageimage} />
+                  <Img css={imgStyles} src={primary.imageimage} />
                 </div>
                 {primary.name && (
                   <div css={buttonWrapperStyles}>
                     <Button
                       inverted
                       rounded={0.25}
+                      size={1.75}
+                      styles={buttonStyles}
                       onClick={() => togglePopup(true)}
                     >
                       {primary.name}

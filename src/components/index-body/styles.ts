@@ -150,23 +150,22 @@ export const TextContainer = styled.div`
 `
 
 export const imageStyles = css`
-  ${tw`w-full`};
-  &::after {
-    ${tw`block absolute inset-0`};
-    content: '';
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 0.25) 50%,
-      rgba(255, 255, 255, 1) 100%
-    );
-  }
+  ${tw`
+    w-screen md:h-screen
+    overflow-hidden
+  `};
+`
+
+export const imgStyles = css`
+  ${tw`
+    h-full
+  `};
 `
 
 export const imageSectionStyles = css`
   ${tw`
     relative w-full
-    my-16
+    my-10
   `};
 `
 
@@ -174,7 +173,17 @@ export const buttonWrapperStyles = css`
   ${tw`
     absolute inset-0
     flex items-center justify-center
+    p-4
   `};
+`
+
+export const buttonStyles = css`
+  box-shadow: 0px 0px 0 10px rgba(255, 73, 14, 0.65);
+  transition: box-shadow 200ms ease-in-out;
+
+  &:hover {
+    box-shadow: 0px 0px 0 20px rgba(255, 73, 14, 0.65);
+  }
 `
 
 export const videoFrameStyles = css`

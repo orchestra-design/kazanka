@@ -18,14 +18,14 @@ export function Map({ text, opened, togglePopup }) {
   return (
     <Popup>
       <Pattern
-        css={css`
+        styles={css`
           ${tw`
             absolute
             w-1/5
           `};
           top: 0;
           left: 0;
-          transform: translate(-1rem, -1rem) rotateZ(180deg);
+          transform: rotateZ(180deg);
         `}
       />
       <Button

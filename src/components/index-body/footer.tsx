@@ -39,20 +39,25 @@ export function Footer({ text, items }) {
       `}
     >
       <Pattern
-        css={css`
+        styles={css`
           ${patternStyles};
           right: 0;
-          transform: translate(1rem, -90%);
+          transform: translateY(-90%);
         `} />
       <Pattern
-        css={css`
+        styles={css`
           ${patternStyles};
           left: 0;
-          transform: translate(-1rem, -1rem) rotateZ(180deg);
+          transform: rotateZ(180deg);
         `}
         color="#FFF"
       />
-      <TextContainer css={css`${tw`relative z-10`}`}>
+      <TextContainer css={css`
+        ${tw`relative z-10`};
+        & h3 {
+          color: #FFF !important;
+        }
+      `}>
         <HTML>{text}</HTML>
       </TextContainer>
       <Row

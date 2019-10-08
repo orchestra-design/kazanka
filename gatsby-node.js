@@ -12,10 +12,10 @@ exports.onCreateBabelConfig = ({ actions }) => {
   })
 }
 
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    node: {
-      fs: 'empty',
-    },
-  })
+exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
+	const config = getConfig()
+	config.node = {
+		fs: 'empty',
+	}
+	actions.replaceWebpackConfig(config)
 }
