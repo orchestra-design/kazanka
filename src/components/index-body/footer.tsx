@@ -53,48 +53,54 @@ export function Footer({ text, items }) {
         `}
         color="#FFF"
       />
-      <TextContainer css={css`
-        ${tw`relative z-10`};
-        & h3 {
-          color: #FFF !important;
-        }
-      `}>
-        <HTML>{text}</HTML>
-      </TextContainer>
-      <Row
+      <div
         css={css`
-          ${tw`mt-10`};
+          ${tw`w-full px-4 max-w-2xl mx-auto`};
         `}
-        gap={1.5}
       >
-        {items.map(({ name, link }) => (
-          <Col key={uuid()} cols={3} gap={1.5}>
-            <a
-              css={css`
-                ${tw`
-                  flex flex-row flex-no-wrap
-                  items-start justify-center
-                  font-semibold text-white
-                `};
-                line-height: 2;
-              `}
-              href={link.url}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <Frame
+        <TextContainer css={css`
+          ${tw`relative z-10`};
+          & h3 {
+            color: #FFF !important;
+          }
+        `}>
+          <HTML>{text}</HTML>
+        </TextContainer>
+        <Row
+          css={css`
+            ${tw`mt-10`};
+          `}
+          gap={1.5}
+        >
+          {items.map(({ name, link }) => (
+            <Col key={uuid()} cols={3} gap={1.5}>
+              <a
                 css={css`
-                ${frameStyles};
-                transform: rotateZ(180deg);
-              `}
-                color="#FFF"
-              />
-              {name}
-              <Frame css={frameStyles} color="#FFF" />
-            </a>
-          </Col>
-        ))}
-      </Row>
+                  ${tw`
+                    flex flex-row flex-no-wrap
+                    items-start justify-center
+                    font-semibold text-white
+                  `};
+                  line-height: 2;
+                `}
+                href={link.url}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Frame
+                  css={css`
+                  ${frameStyles};
+                  transform: rotateZ(180deg);
+                `}
+                  color="#FFF"
+                />
+                {name}
+                <Frame css={frameStyles} color="#FFF" />
+              </a>
+            </Col>
+          ))}
+        </Row>
+      </div>
     </div>
   )
 }

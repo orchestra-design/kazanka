@@ -70,7 +70,7 @@ export function Title({ title }: Readonly<{ title: string }>) {
         </span>
         <span css={css`
         ${tw`font-bold md:pt-1`};
-        letter-spacing: 0.01em;
+        letter-spacing: 0.15em;
         @media (min-width: 768px) {
           letter-spacing: 0.02em;
         }
