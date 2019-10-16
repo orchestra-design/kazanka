@@ -27,13 +27,13 @@ export function IndexBody({ data }) {
       <main css={mainStyles}>
         <div css={jumboStyles}>
           <Title title={title} />
-          <BodyTag tag={tag} textColor="#0D134A" />
+          <BodyTag tag={tag} textColor="#FFF" />
         </div>
         <div css={sectionStyles}>
           <TextContainer>
             <HTML>{description}</HTML>
           </TextContainer>
-          <BodyTag tag={tag} textColor="#FFF" />
+          <BodyTag tag={tag} textColor="#0D134A" />
         </div>
         <Body body={body} />
       </main>
