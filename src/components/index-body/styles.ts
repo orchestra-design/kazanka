@@ -216,11 +216,4 @@ export const frameStyles = css`
     w-full h-screen
     bg-gray-400
   `};
-
-  & .sidebar {
-    display: none !important;
-  }
-  & .drag-instruction {
-    width: 180px;
-  }
 `
