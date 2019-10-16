@@ -65,7 +65,7 @@ export function Map({ text, opened, togglePopup }) {
       </TextContainer>
       <iframe
         css={frameStyles}
-        src="https://nzta.mysocialpinpoint.com/ashley2belfast?_ga=2.58973867.705725962.1568454752-1500795113.1568454752#/"
+        src="https://kazanka_river.mysocialpinpoint.com/kanzaka/map"
         scrolling="false"
       />
     </Popup>
