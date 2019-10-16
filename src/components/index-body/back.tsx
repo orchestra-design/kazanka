@@ -1,13 +1,16 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
 import tw from 'tailwind.macro'
+import {useMedia} from 'react-use'
 
 import { Img } from '../img/index'
 import { Shape } from '../shape/index'
 
-// import { BackVideo } from "./back-video"
+import { BackVideo } from './back-video'
 
 export function Back({ image, video }) {
+  const isWide = useMedia('(min-width: 768px)')
+
   return (
     <div
       css={css`
@@ -35,7 +38,7 @@ export function Back({ image, video }) {
             ${tw`w-full h-full`};
           `}
         />
-        {/* <BackVideo video={video} /> */}
+        {isWide && <BackVideo video={video} />}
         <Shape
           css={css`
             ${tw`
