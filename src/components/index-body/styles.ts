@@ -212,8 +212,7 @@ export const linksStyles = css`
 
 export const frameStyles = css`
   ${tw`
-    mt-8
-    w-full h-screen
+    w-full h-full
     bg-gray-400
   `};
 `

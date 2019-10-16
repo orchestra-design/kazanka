@@ -4,20 +4,17 @@ import tw from 'tailwind.macro'
 export const wrapperStyles = css`
   ${tw`
     fixed inset-0
-    overflow-y-auto
   `};
   z-index: 98;
 `
 
 export const popupStyles = css`
   ${tw`
-    relative
+    fixed inset-0
     flex flex-col
     items-center justify-center
     bg-white
     m-4
-    pt-10
-    overflow-y-auto
   `};
   z-index: 100;
 `
