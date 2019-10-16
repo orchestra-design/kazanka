@@ -33,7 +33,7 @@ export function IndexBody({ data }) {
           <TextContainer>
             <HTML>{description}</HTML>
           </TextContainer>
-          <BodyTag tag={tag} textColor="#0D134A" />
+          <BodyTag tag={tag} textColor="#FFF" />
         </div>
         <Body body={body} />
       </main>
