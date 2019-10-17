@@ -59,6 +59,8 @@ export const frameHeadingStyles = css`
 
 export const TextContainer = styled.div`
   ${tw`
+    font-sans
+    font-light
     mx-auto
     w-full max-w-xl
     subpixel-antialiased
@@ -72,7 +74,7 @@ export const TextContainer = styled.div`
     ${frameHeadingStyles};
     ${tw`
       text-3xl sm:text-5xl
-      pt-12 pb-6
+      pt-12 pb-10
     `};
   }
   & h2 {
@@ -80,28 +82,30 @@ export const TextContainer = styled.div`
     ${frameHeadingStyles};
     ${tw`
       text-2xl sm:text-3xl
-      pt-10 pb-5
+      pt-10 pb-8
     `};
   }
   & h3 {
     ${headingStyles};
+    ${frameHeadingStyles};
     ${tw`
       text-xl
-      pt-8 pb-4
+      pt-8 pb-6
     `};
   }
   & h4 {
+    ${headingStyles};
     ${tw`
       font-semibold
       text-lg
-      pt-6 pb-3
+      pt-8 pb-6
     `};
   }
   & h5 {
     ${tw`
       font-semibold
       text-md
-      pt-4 pb-2
+      pt-4 pb-3
     `};
   }
   & h6 {
@@ -170,11 +174,11 @@ export const buttonWrapperStyles = css`
 `
 
 export const buttonStyles = css`
-  box-shadow: 0px 0px 0 10px rgba(255, 73, 14, 0.65);
+  box-shadow: 0px 0px 0 10px rgba(41, 178, 192, 0.65);
   transition: box-shadow 200ms ease-in-out;
 
   &:hover {
-    box-shadow: 0px 0px 0 20px rgba(255, 73, 14, 0.65);
+    box-shadow: 0px 0px 0 20px rgba(41, 178, 192 0.65);
   }
 `
 

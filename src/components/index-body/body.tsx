@@ -41,6 +41,7 @@ export function Body({ body }) {
                 {primary.name && (
                   <div css={buttonWrapperStyles}>
                     <Button
+                      color="#29B2C0"
                       inverted
                       rounded={0.25}
                       size={1.75}
