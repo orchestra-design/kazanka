@@ -3,10 +3,10 @@ import { get } from 'lodash'
 import * as uuid from 'uuid/v1'
 import { useToggle } from 'react-use'
 
-import { Button } from '../button/index'
 import { HTML } from '../html/index'
 import { Img } from '../img/index'
 
+import { BodyButton } from './button'
 import { Footer } from './footer'
 import { Images } from './images'
 import { Map } from './map'
@@ -40,16 +40,10 @@ export function Body({ body }) {
                 </div>
                 {primary.name && (
                   <div css={buttonWrapperStyles}>
-                    <Button
-                      color="#29B2C0"
-                      inverted
-                      rounded={0.25}
-                      size={1.75}
+                    <BodyButton
                       styles={buttonStyles}
                       onClick={() => togglePopup(true)}
-                    >
-                      {primary.name}
-                    </Button>
+                    />
                   </div>
                 )}
               </section>

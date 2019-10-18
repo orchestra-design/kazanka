@@ -174,11 +174,22 @@ export const buttonWrapperStyles = css`
 `
 
 export const buttonStyles = css`
-  box-shadow: 0px 0px 0 10px rgba(41, 178, 192, 0.65);
-  transition: box-shadow 200ms ease-in-out;
+  ${tw`
+    cursor-pointer
+    w-3/4 md:w-1/2
+  `};
+
+  & * {
+    transition: all 200ms ease-in-out;
+  } 
 
   &:hover {
-    box-shadow: 0px 0px 0 20px rgba(41, 178, 192 0.65);
+    & #shade {
+      fill: #29B2C0;
+    }
+    & #back {
+      fill: #EE5658;
+    }
   }
 `
 
