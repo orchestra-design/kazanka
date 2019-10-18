@@ -87,6 +87,7 @@ export function Videos({ items, title }) {
               ${tw`
                 bg-white
                 overflow-y-auto
+                max-h-full
                 p-4
                 text-sm
               `};
@@ -137,7 +138,6 @@ export function Videos({ items, title }) {
                 flex flex-row md:flex-col
                 flex-no-wrap
                 items-end justify-start
-                max-h-full
               `};
             `}
           >
