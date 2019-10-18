@@ -7,7 +7,7 @@ import * as uuid from 'uuid/v1'
 import { HTML } from '../html/index'
 import { Img } from '../img/index'
 
-import { videoFrameStyles, headingStyles } from './styles'
+import { videoFrameStyles, headingStyles, frameWhiteHeadingStyles } from './styles'
 
 export function Videos({ items, title }) {
   if (!items) return null
@@ -28,11 +28,18 @@ export function Videos({ items, title }) {
       {title && (
         <div
           css={css`
+            ${tw`
+              mx-auto
+              w-full
+              subpixel-antialiased
+              text-center
+            `};
             & h2 {
               ${headingStyles};
+              ${frameWhiteHeadingStyles};
               ${tw`
                 text-2xl sm:text-3xl
-                pt-10 pb-8
+                pt-8 pb-12
               `};
               ${tw`
                 font-sans

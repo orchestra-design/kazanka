@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import tw from 'tailwind.macro'
 
 import * as frame from './frame.svg'
+import * as frameWhite from './frame-white.svg'
 
 export const mainStyles = css`
   ${tw`
@@ -54,6 +55,15 @@ export const frameHeadingStyles = css`
   }
   &::before {
     transform: rotateZ(180deg)
+  }
+`
+
+export const frameWhiteHeadingStyles = css`
+  ${frameHeadingStyles};
+
+  &::before,
+  &::after {
+    background-image: url(${frameWhite});
   }
 `
 
