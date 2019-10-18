@@ -79,7 +79,7 @@ export function Videos({ items, title }) {
               flex
               items-center justify-center
               h-full
-              p-8
+              px-8
               w-3/4 md:w-1/2
             `};
             flex: 1 50%;
@@ -88,11 +88,10 @@ export function Videos({ items, title }) {
           <HTML
             css={css`
               ${tw`
-                bg-white
                 overflow-y-auto
                 max-h-full
-                p-4
                 text-sm
+                text-white
               `};
             `}
           >
