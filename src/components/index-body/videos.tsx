@@ -7,6 +7,7 @@ import * as uuid from 'uuid/v1'
 import { HTML } from '../html/index'
 import { Img } from '../img/index'
 
+import * as back from './back.svg'
 import { videoFrameStyles, headingStyles, frameWhiteHeadingStyles } from './styles'
 
 export function Videos({ items, title }) {
@@ -18,11 +19,13 @@ export function Videos({ items, title }) {
     <section
       css={css`
         ${tw`
+          bg-contain bg-no-repeat
           bg-theme-indigo
           w-full h-full      
           px-8 py-12
           mt-16
         `};
+        background-image: url(${back});
       `}
     >
       {title && (
