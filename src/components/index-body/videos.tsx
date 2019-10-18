@@ -7,9 +7,9 @@ import * as uuid from 'uuid/v1'
 import { HTML } from '../html/index'
 import { Img } from '../img/index'
 
-import { videoFrameStyles } from './styles'
+import { videoFrameStyles, headingStyles } from './styles'
 
-export function Videos({ items }) {
+export function Videos({ items, title }) {
   if (!items) return null
 
   const [current, setCurrent] = React.useState<number>(0)
@@ -25,6 +25,32 @@ export function Videos({ items }) {
         `};
       `}
     >
+      {title && (
+        <div
+          css={css`
+            & h2 {
+              ${headingStyles};
+              ${tw`
+                text-2xl sm:text-3xl
+                pt-10 pb-8
+              `};
+              ${tw`
+                font-sans
+                font-light
+                mx-auto
+                w-full max-w-xl
+                subpixel-antialiased
+                text-center              
+                text-white
+              `};
+            }
+          `}
+        >
+          <h2>
+            {title}
+          </h2>
+        </div>
+      )}
       <div
         css={css`
           ${tw`

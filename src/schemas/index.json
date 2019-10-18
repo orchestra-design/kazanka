@@ -54,8 +54,25 @@
             "description": "List of videos",
             "icon": "video_library",
             "display": "list",
-            "non-repeat": {},
+            "non-repeat": {
+              "videotitle": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "VideoTitle",
+                  "placeholder": "Title"
+                }
+              }
+            },
             "repeat": {
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading4, heading5, strong, em",
+                  "label": "Text",
+                  "placeholder": "Text"
+                }
+              },
               "videosrc": {
                 "type": "Embed",
                 "config": {

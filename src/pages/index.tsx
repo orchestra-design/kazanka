@@ -60,11 +60,19 @@ export const pageQuery = graphql`
             }
           }
           ... on PrismicIndexBodyVideos {
+            primary {
+              videotitle {
+                text
+              }
+            }
             items {
               videosrc {
                 html
                 thumbnail_url
                 title
+              }
+              text {
+                html
               }
             }
           }

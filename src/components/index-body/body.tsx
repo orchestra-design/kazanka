@@ -51,7 +51,14 @@ export function Body({ body }) {
           }
         }
         if (__typename === 'PrismicIndexBodyVideos') {
-          return <Videos key={uuid()} items={items} />
+          console.log(get(primary, 'videotitle.text'))
+          return (
+            <Videos
+              key={uuid()}
+              items={items}
+              title={get(primary, 'videotitle.text')}
+            />
+          )
         }
         if (__typename === 'PrismicIndexBodyText') {
           if (!primary) return null
