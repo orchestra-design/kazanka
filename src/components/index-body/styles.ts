@@ -204,8 +204,7 @@ export const buttonStyles = css`
 `
 
 export const videoFrameStyles = css`
-  ${tw`relative`};
-  padding-bottom: ${(1080 / 1920) * 100}%;
+  ${tw`relative h-full`};
 
   & iframe {
     ${tw`

@@ -38,14 +38,13 @@ export function Videos({ items, title }) {
               ${headingStyles};
               ${frameWhiteHeadingStyles};
               ${tw`
-                text-2xl sm:text-3xl
-                pt-8 pb-12
+                text-2xl
+                pt-8 md:pb-12
               `};
               ${tw`
                 font-sans
                 font-light
                 mx-auto
-                w-full max-w-xl
                 subpixel-antialiased
                 text-center              
                 text-white
@@ -62,61 +61,116 @@ export function Videos({ items, title }) {
         css={css`
           ${tw`
             flex flex-col md:flex-row flex-no-wrap
-            items-start justify-between
+            items-center justify-between
             mx-auto
-            w-full max-w-3xl
+            w-full
           `};
+          @media (min-width: 768px) {
+            height: 60vh;
+          }
         `}
       >
+        <div
+          css={css`
+            ${tw`
+              flex
+              items-center justify-center
+              h-full
+              p-8
+              w-3/4 md:w-1/2
+            `};
+            flex: 1 50%;
+          `}
+        >
+          <HTML
+            css={css`
+              ${tw`
+                bg-white
+                overflow-y-auto
+                p-4
+                text-sm
+              `};
+            `}
+          >
+            {get(items, [current, 'text', 'html'], null)}
+          </HTML>
+        </div>
         <HTML
           css={css`
             ${videoFrameStyles};
             ${tw`
-              w-full md:w-4/5
+              w-full
             `};
+            flex: 1 0 50vh;
+
+            @media (min-width: 768px) {
+              flex: 1 100%;
+            }
           `}
         >
-          {items[current].videosrc.html}
+          {get(items, [current, 'videosrc', 'html'], null)}
         </HTML>
         <div
           css={css`
             ${tw`
-              flex flex-row md:flex-col
-              flex-wrap md:flex-no-wrap
-              items-end justify-start
+              mt-4 md:mt-0
               mx-auto
-              w-full md:w-1/5
+              max-h-full
+              w-full
+              overflow-x-auto
+              md:overflow-y-auto
             `};
+
+            height: 100px;
+            flex: 0 0 100px;
+
+            @media (min-width: 768px) {
+              flex: 0 0 200px;
+              height: 100%;
+              width: 200px;
+            }
           `}
         >
-          {items.map(({ videosrc }, idx) => {
-            if (current === idx) return null
+          <div
+            css={css`
+              ${tw`
+                flex flex-row md:flex-col
+                flex-no-wrap
+                items-end justify-start
+                max-h-full
+              `};
+            `}
+          >
+            {items.map(({ videosrc }, idx) => {
+              if (current === idx) return null
 
-            return (
-              <div
-                css={css`
-                  ${tw`
-                    relative
-                    cursor-pointer
-                    overflow-hidden
-                    opacity-50 hover:opacity-100
-                  `};
-                  width: 150px;
-                  height: 100px;
-                `}
-                key={uuid()}
-                onClick={() => setCurrent(idx)}
-                title={get(videosrc, 'title', '')}
-              >
-                <Img
+              return (
+                <div
                   css={css`
-                    ${tw`absolute w-full h-full`};
+                    ${tw`
+                      relative
+                      cursor-pointer
+                      overflow-hidden
+                      opacity-50 hover:opacity-100
+                    `};
+                    flex: 0 0 auto;
+                    width: 150px;
+                    height: 100px;
                   `}
-                  src={{ url: videosrc.thumbnail_url }}
-                />
-              </div>
-            )
-          })}
+                  key={uuid()}
+                  onClick={() => setCurrent(idx)}
+                  title={get(videosrc, 'title', '')}
+                >
+                  <Img
+                    css={css`
+                      ${tw`absolute w-full h-full`};
+                    `}
+                    src={{ url: videosrc.thumbnail_url }}
+                  />
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>
