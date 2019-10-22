@@ -78,7 +78,7 @@ export function Footer({ text, items }) {
           {items.map(({ name, link }) => (
             <div
               css={css`
-                ${tw`px-2`};
+                ${tw`px-2 mb-8`};
               `}
             >
               <a
