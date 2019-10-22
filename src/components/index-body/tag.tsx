@@ -15,7 +15,7 @@ export function BodyTag({
         ${tw`
           absolute
         `};
-        bottom: 2em;
+        bottom: 1.5em;
         left: 50vw;
         transform: translateX(-50%);
 
