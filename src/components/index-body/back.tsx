@@ -16,10 +16,9 @@ export function Back({ image, video }) {
       css={css`
         ${tw`
           absolute
-          w-screen h-screen
+          inset-0
           overflow-hidden
         `};
-        top: 0;
       `}
     >
       <div

@@ -6,7 +6,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: 'Kazanka',
-    siteUrl: 'https://kazanka.orchestra-design.com',
+    siteUrl: 'https://kazanka.tatar',
   },
   plugins: [
     {

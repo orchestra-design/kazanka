@@ -28,6 +28,8 @@ export function Title({ title }: Readonly<{ title: string }>) {
         ${tw`
           flex flex-row flex-no-wrap
           items-center justify-center
+          relative
+          pt-12 md:pt-0
         `};
         padding-bottom: 20vh;
       `}
@@ -54,19 +56,10 @@ export function Title({ title }: Readonly<{ title: string }>) {
       >
         <span
           css={css`
-            letter-spacing: 0.03em;
             ${lightStyles};
           `}
         >
-          {first}
-        </span>
-        <span
-          css={css`
-            letter-spacing: 0.08em;
-            ${lightStyles};
-          `}
-        >
-          {second}
+          {first} {second}
         </span>
         <span css={css`
         ${tw`font-bold md:pt-1`};

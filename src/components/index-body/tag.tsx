@@ -15,9 +15,13 @@ export function BodyTag({
         ${tw`
           absolute
         `};
-        bottom: 4em;
+        bottom: 2em;
         left: 50vw;
         transform: translateX(-50%);
+
+        @media (min-width: 768px) {
+          bottom: 4em;          
+        }
       `}
     >
       <Tag tag={tag} {...props} />

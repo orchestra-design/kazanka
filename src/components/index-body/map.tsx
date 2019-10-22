@@ -19,13 +19,13 @@ export function Map({ text, opened, togglePopup }) {
       <Button
         css={css`
           ${tw`absolute`};
-          top: 0.5rem;
-          right: 0.5rem;
+          bottom: 0.5rem;
+          left: 0.5rem;
         `}
         onClick={() => togglePopup(false)}
         size={0.75}
       >
-        Закрыть
+        ×
       </Button>
       <iframe
         css={frameStyles}

@@ -22,16 +22,20 @@ export function Videos({ items, title }) {
           bg-contain bg-no-repeat
           bg-theme-indigo
           w-full h-full      
-          px-8 py-12
+          px-8 py-4 md:py-12
           mt-16
         `};
-        background-image: url(${back});
+         @media (min-width: 768px) {
+          background-image: url(${back});
+         }
       `}
     >
       {title && (
         <div
           css={css`
             ${tw`
+              flex flex-col
+              items-center
               mx-auto
               w-full
               subpixel-antialiased
@@ -41,7 +45,7 @@ export function Videos({ items, title }) {
               ${headingStyles};
               ${frameWhiteHeadingStyles};
               ${tw`
-                text-2xl
+                text-lg md:text-2xl
                 pt-8 md:pb-12
               `};
               ${tw`
@@ -56,7 +60,18 @@ export function Videos({ items, title }) {
           `}
         >
           <h2>
-            {title}
+            <span
+              css={css`
+                ${tw`
+                  flex flex-col md:flex-row
+                  items-center
+                `};
+              `}
+            >
+              <span>{title.split(' ').slice(0, 1).join(' ')}</span>
+              <span>{title.split(' ').slice(1, 4).join(' ')}</span>
+              <span>{title.split(' ').slice(4).join(' ')}</span>
+            </span>
           </h2>
         </div>
       )}
@@ -79,8 +94,9 @@ export function Videos({ items, title }) {
               flex
               items-center justify-center
               h-full
-              px-8
-              w-3/4 md:w-1/2
+              py-8 md:py-0
+              md:px-8
+              w-full md:w-1/2
             `};
             flex: 1 50%;
           `}
@@ -88,6 +104,7 @@ export function Videos({ items, title }) {
           <HTML
             css={css`
               ${tw`
+                font-sans
                 overflow-y-auto
                 max-h-full
                 text-sm

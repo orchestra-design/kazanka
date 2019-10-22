@@ -23,9 +23,9 @@ export function IndexBody({ data }) {
   const description = get(data, 'description.html')
   return (
     <div>
-      <Back image={image} video={video} />
       <main css={mainStyles}>
         <div css={jumboStyles}>
+          <Back image={image} video={video} />
           <Title title={title} />
           <BodyTag tag={tag} textColor="#FFF" />
         </div>

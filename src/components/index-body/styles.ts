@@ -14,7 +14,8 @@ export const mainStyles = css`
 export const jumboStyles = css`
   ${tw`
     flex items-center justify-center
-    w-full h-screen
+    w-full
+    md:h-screen
     relative
   `};
 `
