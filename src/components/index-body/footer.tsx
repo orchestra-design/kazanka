@@ -44,7 +44,8 @@ export function Footer({ text, items }) {
           ${patternStyles};
           right: 0;
           transform: translateY(-90%);
-        `} />
+        `}
+      />
       <Pattern
         styles={css`
           ${patternStyles};
@@ -58,12 +59,14 @@ export function Footer({ text, items }) {
           ${tw`w-full px-4 max-w-2xl mx-auto`};
         `}
       >
-        <TextContainer css={css`
-          ${tw`relative z-10`};
-          & h3 {
-            color: #FFF !important;
-          }
-        `}>
+        <TextContainer
+          css={css`
+            ${tw`relative z-10`};
+            & h3 {
+              color: #fff !important;
+            }
+          `}
+        >
           <HTML>{text}</HTML>
         </TextContainer>
         <Row
@@ -73,7 +76,11 @@ export function Footer({ text, items }) {
           gap={1.5}
         >
           {items.map(({ name, link }) => (
-            <Col key={uuid()} cols={3} gap={1.5}>
+            <div
+              css={css`
+                ${tw`px-2`};
+              `}
+            >
               <a
                 css={css`
                   ${tw`
@@ -89,15 +96,15 @@ export function Footer({ text, items }) {
               >
                 <Frame
                   css={css`
-                  ${frameStyles};
-                  transform: rotateZ(180deg);
-                `}
+                    ${frameStyles};
+                    transform: rotateZ(180deg);
+                  `}
                   color="#FFF"
                 />
                 {name}
                 <Frame css={frameStyles} color="#FFF" />
               </a>
-            </Col>
+            </div>
           ))}
         </Row>
       </div>

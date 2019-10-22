@@ -29,9 +29,13 @@ export function Title({ title }: Readonly<{ title: string }>) {
           flex flex-row flex-no-wrap
           items-center justify-center
           relative
-          pt-12 md:pt-0
+          md:mt-0
         `};
-        padding-bottom: 20vh;
+        margin: 6rem 0 7.5rem;
+        @media (min-width: 768px) {
+          margin: 0;
+          padding-bottom: 20vh;
+        }        
       `}
     >
       <Frame

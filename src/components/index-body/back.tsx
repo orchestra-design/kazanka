@@ -24,11 +24,11 @@ export function Back({ image, video }) {
       <div
         css={css`
           ${tw`absolute inset-0 object-center object-cover`};
-          /* &::after {
+          &::after {
             ${tw`block absolute inset-0`};
             content: '';
-            background: linear-gradient(180deg, rgba(41, 178, 192, 0) 0%, rgba(41, 178, 192, 1) 100%);
-          } */
+            background: rgba(0, 0, 0, 0.25);
+          }
         `}
       >
         <Img
@@ -50,6 +50,6 @@ export function Back({ image, video }) {
           `}
         />
       </div>
-    </div >
+    </div>
   )
 }
