@@ -5,11 +5,10 @@ import { useLockBodyScroll } from 'react-use'
 
 import { Button } from '../button/index'
 import { Popup } from '../popup/index'
-import { HTML } from '../html/index'
 
-import { frameStyles, TextContainer } from './styles'
+import { frameStyles } from './styles'
 
-export function Map({ text, opened, togglePopup }) {
+export function Map({ /* text, */ opened, togglePopup }) {
   if (!opened) return null
 
   useLockBodyScroll(opened)

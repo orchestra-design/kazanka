@@ -14,6 +14,14 @@ export const pageQuery = graphql`
   query IndexQuery {
     prismicIndex {
       data {
+        faq {
+          answer {
+            html
+          }
+          question {
+            text
+          }
+        }
         body {
           __typename
           ... on PrismicIndexBodyImage {

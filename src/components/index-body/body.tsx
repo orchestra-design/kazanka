@@ -3,10 +3,12 @@ import { get } from 'lodash'
 import * as uuid from 'uuid/v1'
 import { useToggle } from 'react-use'
 
+import { Button } from '../button/index'
 import { HTML } from '../html/index'
 import { Img } from '../img/index'
 
 import { BodyButton } from './button'
+import { Faq } from './faq'
 import { Footer } from './footer'
 import { Images } from './images'
 import { Map } from './map'
@@ -18,19 +20,40 @@ import {
   buttonWrapperStyles,
   buttonStyles,
   TextContainer,
+  faqStyles,
 } from './styles'
 
-export function Body({ body }) {
+export function Body({ body, faq }) {
   if (!body) return null
 
   const [popupOpened, togglePopup] = useToggle(false)
+  const [faqOpened, toggleFaq] = useToggle(false)
 
   return (
     <React.Fragment>
       {body.map(({ __typename, primary, items }) => {
         if (__typename === 'PrismicIndexBodyImage') {
           if (get(items, '0.imageimages.url')) {
-            return <Images key={uuid()} items={items} />
+            return (
+              <React.Fragment key={uuid()}>
+                <Images items={items} />
+                <Button
+                  color="#29B2C0"
+                  inverted
+                  rounded={0.25}
+                  size={1.75}
+                  styles={faqStyles}
+                  onClick={() => toggleFaq(true)}
+                >
+                  F.A.Q.
+                </Button>
+                <Faq
+                  faq={faq}
+                  opened={faqOpened}
+                  toggle={toggleFaq}
+                />
+              </React.Fragment>
+            )
           }
           if (get(primary, 'imageimage.url')) {
             return (
@@ -51,7 +74,6 @@ export function Body({ body }) {
           }
         }
         if (__typename === 'PrismicIndexBodyVideos') {
-          console.log(get(primary, 'videotitle.text'))
           return (
             <Videos
               key={uuid()}

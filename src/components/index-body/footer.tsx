@@ -77,6 +77,7 @@ export function Footer({ text, items }) {
         >
           {items.map(({ name, link }) => (
             <div
+              key={uuid()}
               css={css`
                 ${tw`px-2 mb-8`};
               `}

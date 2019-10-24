@@ -176,5 +176,32 @@
         "placeholder": "Keywords"
       }
     }
+  },
+  "FAQ": {
+    "faq": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "question": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading4",
+              "label": "Question",
+              "placeholder": "Question"
+            }
+          },
+          "answer": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+              "allowTargetBlank": true,
+              "label": "Answer",
+              "placeholder": "Answer"
+            }
+          }
+        },
+        "label": "FAQ"
+      }
+    }
   }
 }

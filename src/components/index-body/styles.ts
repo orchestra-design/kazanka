@@ -241,3 +241,12 @@ export const frameStyles = css`
     bg-gray-400
   `};
 `
+
+export const faqStyles = css`
+  ${tw`
+    block
+    mx-auto
+    mb-20
+    mt-10
+  `};
+`
