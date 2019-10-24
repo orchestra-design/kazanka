@@ -254,15 +254,15 @@ export const faqStyles = css`
 export const copyStyles = css`
   ${tw`
     w-full
-    py-10
+    pt-10
     relative
     bg-theme-teal
   `};
 
   & a {
     ${tw`
-      font-semibold
       text-theme-indigo
+      underline
     `};
   }
 
@@ -275,6 +275,7 @@ export const copyStyles = css`
   }
   & p {
     ${tw`
+      text-xxs
       px-4
     `};
   }
