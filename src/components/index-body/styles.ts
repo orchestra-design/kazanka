@@ -250,3 +250,32 @@ export const faqStyles = css`
     mt-10
   `};
 `
+
+export const copyStyles = css`
+  ${tw`
+    w-full
+    py-10
+    relative
+    bg-theme-teal
+  `};
+
+  & a {
+    ${tw`
+      font-semibold
+      text-theme-indigo
+    `};
+  }
+
+  & div {
+    ${tw`
+      flex flex-col md:flex-row
+      justify-between
+      w-full
+    `};
+  }
+  & p {
+    ${tw`
+      px-4
+    `};
+  }
+`

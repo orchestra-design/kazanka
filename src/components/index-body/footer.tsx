@@ -75,7 +75,7 @@ export function Footer({ text, items }) {
           `}
           gap={1.5}
         >
-          {items.map(({ name, link }) => (
+          {items.map(({ name, link }) => link ? (
             <div
               key={uuid()}
               css={css`
@@ -106,7 +106,7 @@ export function Footer({ text, items }) {
                 <Frame css={frameStyles} color="#FFF" />
               </a>
             </div>
-          ))}
+          ) : null)}
         </Row>
       </div>
     </div>

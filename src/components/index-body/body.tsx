@@ -21,6 +21,7 @@ import {
   buttonStyles,
   TextContainer,
   faqStyles,
+  copyStyles,
 } from './styles'
 
 export function Body({ body, faq }) {
@@ -101,6 +102,17 @@ export function Body({ body, faq }) {
                 text={get(primary, 'text.html')}
                 items={items}
               />
+            )
+          }
+          if (primary.name === 'copy') {
+            return (
+              <div
+                css={copyStyles}
+              >
+                <TextContainer>
+                  <HTML>{get(primary, 'text.html')}</HTML>
+                </TextContainer>
+              </div>
             )
           }
           return (
