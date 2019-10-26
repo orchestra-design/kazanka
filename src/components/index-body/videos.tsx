@@ -66,6 +66,9 @@ export function Videos({ items, title }) {
                   flex flex-col md:flex-row
                   items-center
                 `};
+                & span {
+                  ${tw`px-1`};
+                }
               `}
             >
               <span>{title.split(' ').slice(0, 1).join(' ')}</span>
