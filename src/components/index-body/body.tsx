@@ -11,7 +11,7 @@ import { BodyButton } from './button'
 import { Faq } from './faq'
 import { Footer } from './footer'
 import { Images } from './images'
-import { Map } from './map'
+// import { Map } from './map'
 import { Videos } from './videos'
 import {
   imageStyles,
@@ -27,7 +27,7 @@ import {
 export function Body({ body, faq }) {
   if (!body) return null
 
-  const [popupOpened, togglePopup] = useToggle(false)
+  // const [popupOpened, togglePopup] = useToggle(false)
   const [faqOpened, toggleFaq] = useToggle(false)
 
   return (
@@ -63,12 +63,17 @@ export function Body({ body, faq }) {
                   <Img css={imgStyles} src={primary.imageimage} />
                 </div>
                 {primary.name && (
-                  <div css={buttonWrapperStyles}>
+                  <a
+                    css={buttonWrapperStyles}
+                    href="https://kazanka_river.mysocialpinpoint.com/kanzaka/map"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
                     <BodyButton
                       styles={buttonStyles}
-                      onClick={() => togglePopup(true)}
+                      onClick={() => {}}
                     />
-                  </div>
+                  </a>
                 )}
               </section>
             )
@@ -85,16 +90,16 @@ export function Body({ body, faq }) {
         }
         if (__typename === 'PrismicIndexBodyText') {
           if (!primary) return null
-          if (primary.name === 'map') {
-            return (
-              <Map
-                key={uuid()}
-                text={get(primary, 'text.html')}
-                togglePopup={togglePopup}
-                opened={popupOpened}
-              />
-            )
-          }
+          // if (primary.name === 'map') {
+          //   return (
+          //     <Map
+          //       key={uuid()}
+          //       text={get(primary, 'text.html')}
+          //       togglePopup={togglePopup}
+          //       opened={popupOpened}
+          //     />
+          //   )
+          // }
           if (primary.name === 'links') {
             return (
               <Footer
