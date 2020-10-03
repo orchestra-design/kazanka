@@ -13,8 +13,8 @@ function IndexPage({ data }) {
 }
 
 export const pageQuery = graphql`
-  query IndexQuery {
-    prismicIndex(uid: { eq: "next" }) {
+  query PreviousQuery {
+    prismicIndex(uid: { eq: "previous" }) {
       data {
         faq {
           answer {

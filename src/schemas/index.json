@@ -1,5 +1,12 @@
 {
   "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "UID",
+        "placeholder": "UID"
+      }
+    },
     "title": {
       "type": "StructuredText",
       "config": {
@@ -47,6 +54,7 @@
       "type": "Slices",
       "fieldset": "Slice zone",
       "config": {
+        "labels": {},
         "choices": {
           "videos": {
             "type": "Slice",
