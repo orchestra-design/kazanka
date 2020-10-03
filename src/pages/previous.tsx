@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { IndexBody } from '../components/index-body/index'
 import { Layout } from '../components/layout/index'
 
-function IndexPage({ data }) {
+function PreviousPage({ data }) {
   return (
     <Layout>
       <IndexBody data={data.prismicIndex.data} />
@@ -115,4 +115,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default IndexPage
+export default PreviousPage
