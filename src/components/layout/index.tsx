@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Global } from '@emotion/core'
 import { useFavicon } from 'react-use'
 
-import { Header } from '../header/index'
+// import { Header } from '../header/index'
 
 import '../../fonts/sofia/stylesheet.css'
 import './globals.css'
@@ -18,7 +18,7 @@ export function Layout({ children }) {
   return (
     <div css={layoutStyles}>
       <Global styles={globalStyles} />
-      <Header />
+      {/* <Header /> */}
       {children}
     </div>
   )

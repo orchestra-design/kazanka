@@ -67,6 +67,9 @@ export const pageQuery = graphql`
                 url
               }
               name
+              richtext {
+                html
+              }
             }
           }
           ... on PrismicIndexBodyVideos {

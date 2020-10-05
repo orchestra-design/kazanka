@@ -22,15 +22,29 @@ export const jumboStyles = css`
 
 export const sectionStyles = css`
   ${tw`
-    my-10 pb-40
+    my-10 pb-20
     relative
   `};
+
+  & > div > div {
+    ${tw`
+    flex md:flex-row
+    items-center justify-center
+  `};
+  }
+
+  &  > div > div h2 {
+    ${tw`
+      pr-8
+    `};
+    line-height: 0.75;
+  }
 `
 
 export const headingStyles = css`
   ${tw`
     font-sans
-    font-bold
+    font-semibold
     leading-tight
     text-theme-indigo
   `};
@@ -55,7 +69,7 @@ export const frameHeadingStyles = css`
     content: '.......';
   }
   &::before {
-    transform: rotateZ(180deg)
+    transform: rotateZ(180deg);
   }
 `
 
@@ -90,15 +104,13 @@ export const TextContainer = styled.div`
   }
   & h2 {
     ${headingStyles};
-    ${frameHeadingStyles};
     ${tw`
-      text-2xl sm:text-3xl
+      text-2xl sm:text-5xl
       pt-10 pb-8
     `};
   }
   & h3 {
     ${headingStyles};
-    ${frameHeadingStyles};
     ${tw`
       text-xl
       pt-8 pb-6
@@ -192,14 +204,14 @@ export const buttonStyles = css`
 
   & * {
     transition: all 200ms ease-in-out;
-  } 
+  }
 
   &:hover {
     & #shade {
-      fill: #29B2C0;
+      fill: #29b2c0;
     }
     & #back {
-      fill: #EE5658;
+      fill: #ee5658;
     }
   }
 `
@@ -256,12 +268,12 @@ export const copyStyles = css`
     w-full
     pt-10
     relative
-    bg-theme-teal
+    bg-theme-indigo
+    text-white
   `};
 
   & a {
     ${tw`
-      text-theme-indigo
       underline
     `};
   }
@@ -277,6 +289,38 @@ export const copyStyles = css`
     ${tw`
       text-xxs
       px-4
+    `};
+  }
+`
+
+export const digitsStyles = css`
+  ${tw`
+    w-full max-w-5xl
+    pt-20
+    pb-10
+    px-4
+    relative
+    flex flex-row flex-wrap
+    items-center justify-center
+  `};
+
+  & > div {
+    ${tw`
+      w-full md:w-1/3
+      mb-10
+    `};
+  }
+  & > div h2 {
+    ${tw`
+      text-5xl
+      pt-1
+      pb-1
+      whitespace-no-wrap
+    `};
+  }
+  & > div p {
+    ${tw`
+      text-center
     `};
   }
 `

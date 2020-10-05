@@ -34,7 +34,7 @@ export function Footer({ text, items }) {
           py-10
           mt-10
           relative
-          bg-theme-teal
+          bg-theme-indigo
         `};
         bottom: 0;
       `}
@@ -44,7 +44,8 @@ export function Footer({ text, items }) {
           ${patternStyles};
           right: 0;
           transform: translateY(-90%);
-        `}
+          `}
+        color="#0D134A"
       />
       <Pattern
         styles={css`
@@ -62,7 +63,7 @@ export function Footer({ text, items }) {
         <TextContainer
           css={css`
             ${tw`relative z-10`};
-            & h3 {
+            & h4 {
               color: #fff !important;
             }
           `}

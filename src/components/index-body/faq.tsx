@@ -32,7 +32,7 @@ export function Faq({ faq, opened, toggle }) {
           top: 0.5rem;
           right: 0.5rem;
         `}
-        color="#29B2C0"
+        color="#0D134A"
         onClick={() => toggle(false)}
         size={0.75}
       >

@@ -3,7 +3,7 @@ import { get } from 'lodash'
 
 import { HTML } from '../html/index'
 
-import { BodyTag } from './tag'
+// import { BodyTag } from './tag'
 import { Back } from './back'
 import { Body } from './body'
 import { Title } from './title'
@@ -22,13 +22,13 @@ export function IndexBody({ data }) {
       <div css={jumboStyles}>
         <Back image={image} video={video} />
         <Title title={title} />
-        <BodyTag tag={tag} textColor="#FFF" />
+        {/* <BodyTag tag={tag} textColor="#FFF" /> */}
       </div>
       <div css={sectionStyles}>
         <TextContainer>
           <HTML>{description}</HTML>
         </TextContainer>
-        <BodyTag tag={tag} textColor="#0D134A" />
+        {/* <BodyTag tag={tag} textColor="#0D134A" /> */}
       </div>
       <Body body={body} faq={faq} />
     </main>
