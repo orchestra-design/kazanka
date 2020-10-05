@@ -3,7 +3,7 @@ import { get } from 'lodash'
 
 import { HTML } from '../html/index'
 
-// import { BodyTag } from './tag'
+import { BodyTag } from './tag'
 import { Back } from './back'
 import { Body } from './body'
 import { Title } from './title'
@@ -16,13 +16,19 @@ export function IndexBody({ data }) {
   const body = get(data, 'body')
   const tag = get(data, 'tag', '')
   const title = get(data, 'title.text', '')
+  const subtitle = get(data, 'subtitle.text', '')
   const description = get(data, 'description.html')
   return (
     <main css={mainStyles}>
       <div css={jumboStyles}>
         <Back image={image} video={video} />
-        <Title title={title} />
-        {/* <BodyTag tag={tag} textColor="#FFF" /> */}
+        <div>
+          <Title title={title} />
+          <div className="text-xl text-white relative text-center mt-6 mb-20">
+            <HTML>{subtitle}</HTML>
+          </div>
+        </div>
+        <BodyTag tag={tag} textColor="#FFF" />
       </div>
       <div css={sectionStyles}>
         <TextContainer>

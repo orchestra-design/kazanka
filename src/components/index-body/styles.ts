@@ -28,14 +28,14 @@ export const sectionStyles = css`
 
   & > div > div {
     ${tw`
-    flex md:flex-row
+    flex flex-col md:flex-row
     items-center justify-center
   `};
   }
 
   &  > div > div h2 {
     ${tw`
-      pr-8
+      md:pr-8
     `};
     line-height: 0.75;
   }
@@ -217,13 +217,15 @@ export const buttonStyles = css`
 `
 
 export const videoFrameStyles = css`
-  ${tw`relative h-full`};
+  ${tw`relative h-full overflow-hidden`};
 
   & iframe {
     ${tw`
       absolute inset-0
-      w-full h-full
+      h-full
     `};
+
+    width: 101%;
   }
 `
 
@@ -306,15 +308,16 @@ export const digitsStyles = css`
 
   & > div {
     ${tw`
-      w-full md:w-1/3
+      md:max-w-1/3
       mb-10
+      mx-0
     `};
   }
   & > div h2 {
     ${tw`
-      text-5xl
+      text-5xl md:text-6xl
       pt-1
-      pb-1
+      pb-0
       whitespace-no-wrap
     `};
   }

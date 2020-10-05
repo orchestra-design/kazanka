@@ -105,7 +105,7 @@ export function Body({ body, faq }) {
           }
           if (primary.name === 'copy') {
             return (
-              <div css={copyStyles}>
+              <div css={copyStyles} key={uuid()}>
                 <TextContainer>
                   <HTML>{get(primary, 'text.html')}</HTML>
                 </TextContainer>
@@ -114,7 +114,10 @@ export function Body({ body, faq }) {
           }
           if (primary.name === 'digits' && items && items.length) {
             return (
-              <div className="bg-theme-yellow flex items-center justify-center mt-12">
+              <div
+                className="bg-theme-yellow flex items-center justify-center mt-12"
+                key={uuid()}
+              >
                 <div css={digitsStyles}>
                   {items.map(({ richtext }) => (
                     <TextContainer key={uuid()}>

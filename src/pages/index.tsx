@@ -110,6 +110,9 @@ export const pageQuery = graphql`
         title {
           text
         }
+        subtitle {
+          text
+        }
         video {
           url
         }
