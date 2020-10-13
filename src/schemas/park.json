@@ -30,6 +30,17 @@
               "name": "imageleft",
               "display": "ImageLeft"
             }
+          ],
+          "link": [],
+          "two_column_text": [
+            {
+              "name": "leftcol",
+              "display": "LeftCol"
+            },
+            {
+              "name": "rightcol",
+              "display": "RightCol"
+            }
           ]
         },
         "choices": {
@@ -140,6 +151,68 @@
                 "type": "Embed",
                 "config": {
                   "label": "VideoSrc"
+                }
+              }
+            }
+          },
+          "link": {
+            "type": "Slice",
+            "fieldset": "Link",
+            "description": "Link to GoogleForm",
+            "icon": "insert_link",
+            "display": "list",
+            "non-repeat": {
+              "linktitle": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "LinkTitle",
+                  "placeholder": "Button Text"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Link",
+                  "placeholder": "Link"
+                }
+              },
+              "linktext": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "allowTargetBlank": true,
+                  "label": "LinkText"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "two_column_text": {
+            "type": "Slice",
+            "fieldset": "Two Column Text",
+            "description": "Text in Two Colunmns ",
+            "icon": "view_column",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "leftcol": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "allowTargetBlank": true,
+                  "label": "LeftCol",
+                  "placeholder": "Text"
+                }
+              },
+              "righttext": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "allowTargetBlank": true,
+                  "label": "RightText",
+                  "placeholder": "Text"
                 }
               }
             }

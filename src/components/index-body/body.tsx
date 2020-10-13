@@ -9,7 +9,6 @@ import { Img } from '../img/index'
 
 import { BodyButton } from './button'
 import { Faq } from './faq'
-import { Footer } from './footer'
 import { Images } from './images'
 // import { Map } from './map'
 import { Video } from './video'
@@ -94,24 +93,6 @@ export function Body({ body, faq }) {
           //     />
           //   )
           // }
-          if (primary.name === 'links') {
-            return (
-              <Footer
-                key={uuid()}
-                text={get(primary, 'text.html')}
-                items={items}
-              />
-            )
-          }
-          if (primary.name === 'copy') {
-            return (
-              <div css={copyStyles} key={uuid()}>
-                <TextContainer>
-                  <HTML>{get(primary, 'text.html')}</HTML>
-                </TextContainer>
-              </div>
-            )
-          }
           if (primary.name === 'digits' && items && items.length) {
             return (
               <div
