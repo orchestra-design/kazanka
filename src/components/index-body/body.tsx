@@ -93,6 +93,12 @@ export function Body({ body, faq }) {
           //     />
           //   )
           // }
+          if (primary.name === 'links') {
+            return null
+          }
+          if (primary.name === 'copy') {
+            return null
+          }
           if (primary.name === 'digits' && items && items.length) {
             return (
               <div
