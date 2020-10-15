@@ -34,7 +34,7 @@ export function ParkBody({ data }) {
           }
         `}
       >
-        <div className="max-w-xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <If predicate={!!title}>
             <h1 className="font-semibold text-5xl md:text-6xl">{title}</h1>
           </If>
@@ -57,7 +57,7 @@ export function ParkBody({ data }) {
                 <TwoCols items={items} label={slice_label} />
               </If>
               <If predicate={__typename === 'PrismicParkBodyText'}>
-                <TextContainer className="max-w-xl mx-auto">
+                <TextContainer className="max-w-3xl mx-auto">
                   <HTML>{get(primary, 'text.html')}</HTML>
                 </TextContainer>
               </If>

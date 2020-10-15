@@ -28,7 +28,7 @@ export function LinkToForm({ primary }) {
         }
       `}
     >
-      <div className="w-full max-w-xl mx-auto mb-12 flex flex-col md:flex-row flex-no-wrap">
+      <div className="w-full max-w-3xl mx-auto mb-12 flex flex-col md:flex-row flex-no-wrap">
         <div
           className="md:min-w-1/2 flex-shrink-0 flex-grow relative bg-theme-red"
           css={css`
@@ -49,7 +49,7 @@ export function LinkToForm({ primary }) {
           `}
         >
           <a
-            className="block px-4 py-8 text-white whitespace-no-wrap"
+            className="block px-4 py-8 text-white md:whitespace-no-wrap text-center"
             href={url}
             rel="noopener noreferrer"
             target="_blank"
@@ -57,7 +57,7 @@ export function LinkToForm({ primary }) {
             {title}
           </a>
         </div>
-        <div className="md:w-1/2 pt-8 md:pt-0 pl-8">
+        <div className="md:w-1/2 pt-8 md:pt-0 md:pl-8">
           <TextContainer>
             <HTML>{text}</HTML>
           </TextContainer>

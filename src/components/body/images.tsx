@@ -17,18 +17,18 @@ export function Images({ items = [] }) {
   if (items.length === 0) return null
 
   return (
-    <section className="w-full max-w-xl mx-auto mb-12 px-8">
+    <section className="w-full max-w-3xl mx-auto mb-12 md:px-8">
       {[items[current]].map(({ imgimage, imgcaption }) => {
         return (
           <div key={uuid()} onClick={handleClick} className="cursor-pointer">
             <Img className="w-full" src={imgimage} />
             <If predicate={items.length > 1}>
-              <div className="pt-2 text-xxs">
+              <div className="pt-2 text-xxs px-8">
                 {current + 1} / {items.length}
               </div>
             </If>
             <If predicate={!!imgcaption}>
-              <DescriptionContainer className="pt-2">
+              <DescriptionContainer className="pt-2 px-8">
                 {imgcaption}
               </DescriptionContainer>
             </If>

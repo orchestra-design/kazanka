@@ -158,6 +158,8 @@ module.exports = {
       64: '16rem',
       '1/3': '33.333334%',
       '2/3': '66.666667%',
+      '1/4': '25%',
+      '3/4': '75%',
     },
     backgroundColor: (theme) => theme('colors'),
     backgroundPosition: {

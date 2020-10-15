@@ -16,8 +16,8 @@ export function ImageCaption({ primary, label }) {
   const isRight = label === 'imageright'
 
   return (
-    <section className="w-full max-w-xl mx-auto mb-12 flex flex-col md:flex-row flex-no-wrap px-8">
-      <div className="md:w-1/3">
+    <section className="w-full max-w-3xl mx-auto mb-12 flex flex-col md:flex-row flex-no-wrap px-8">
+      <div className="md:w-1/4">
         <If predicate={!isRight && !!image}>
           <Img src={image} />
         </If>
@@ -27,7 +27,7 @@ export function ImageCaption({ primary, label }) {
           </TextContainer>
         </If>
       </div>
-      <div className="md:w-2/3">
+      <div className="md:w-3/4">
         <If predicate={isRight && !!image}>
           <Img src={image} />
         </If>
