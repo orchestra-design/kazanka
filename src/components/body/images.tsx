@@ -17,7 +17,7 @@ export function Images({ items = [] }) {
   if (items.length === 0) return null
 
   return (
-    <section className="w-full max-w-3xl mx-auto mb-12 md:px-8">
+    <section className="w-full max-w-3xl mx-auto mb-12">
       {[items[current]].map(({ imgimage, imgcaption }) => {
         return (
           <div key={uuid()} onClick={handleClick} className="cursor-pointer">
