@@ -25,7 +25,7 @@ export function ParkBody({ data }) {
           bg-contain bg-no-repeat
           bg-theme-yellow
           w-full h-full      
-          px-8 py-4 md:py-12
+          px-8 py-16
           mb-12
         `}
         css={css`
