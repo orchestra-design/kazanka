@@ -24,7 +24,7 @@ export function ParkBody({ data }) {
           font-sans
           bg-contain bg-no-repeat
           bg-theme-yellow
-          w-full h-full      
+          w-full h-full
           px-8 py-16
           mb-12
         `}
