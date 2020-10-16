@@ -29,7 +29,7 @@ export function Header() {
     <header className="absolute inset-0 bottom-auto p-4 z-10">
       <nav className="flex flex-row">
         <Link href="/" activeClassName="hidden">
-          ← Вернуться на Главную
+          ← На главную страницу
         </Link>
         <ul className="flex flex-row flex-no-wrap ml-auto">
           {LINKS.map(({ title, href }) => (
