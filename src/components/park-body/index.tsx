@@ -36,7 +36,7 @@ export function ParkBody({ data }) {
       >
         <div className="max-w-3xl mx-auto">
           <If predicate={!!title}>
-            <h1 className="font-semibold text-5xl md:text-6xl">{title}</h1>
+            <h1 className="font-semibold text-4xl md:text-5xl">{title}</h1>
           </If>
           <If predicate={!!firstBlockText}>
             <HTML>{firstBlockText}</HTML>
