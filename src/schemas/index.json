@@ -1,11 +1,26 @@
 {
   "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "UID",
+        "placeholder": "UID"
+      }
+    },
     "title": {
       "type": "StructuredText",
       "config": {
         "single": "heading1",
         "label": "Title",
         "placeholder": "Title"
+      }
+    },
+    "subtitle": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Subtitle",
+        "placeholder": "Subtitle"
       }
     },
     "tag": {
@@ -47,6 +62,7 @@
       "type": "Slices",
       "fieldset": "Slice zone",
       "config": {
+        "labels": {},
         "choices": {
           "videos": {
             "type": "Slice",
@@ -111,6 +127,15 @@
                 "config": {
                   "label": "Name",
                   "placeholder": "Name"
+                }
+              },
+              "richtext": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "allowTargetBlank": true,
+                  "label": "RichText",
+                  "placeholder": "Text"
                 }
               },
               "link": {

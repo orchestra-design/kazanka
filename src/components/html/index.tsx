@@ -3,6 +3,7 @@ import * as React from 'react'
 interface HTMLProps {
   children: string | any | {}
   css?: any
+  className?: string
   key?: string
 }
 

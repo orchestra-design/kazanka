@@ -16,7 +16,10 @@ module.exports = {
         accessToken: process.env.TOKEN,
         linkResolver: () => doc => doc.slug,
         schemas: {
+          engagement: require('./src/schemas/engagement.json'),
           index: require('./src/schemas/index.json'),
+          park: require('./src/schemas/park.json'),
+          princips: require('./src/schemas/princips.json'),
         },
       },
     },

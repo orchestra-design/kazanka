@@ -1,29 +1,20 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { get } from 'lodash'
 
 import { IndexBody } from '../components/index-body/index'
 import { Layout } from '../components/layout/index'
 
-function IndexPage({ data }) {
-  const links = get(data.prismicIndex, 'data.body', []).find(
-    ({ __typename, primary }) =>
-      __typename === 'PrismicIndexBodyText' && primary.name === 'links'
-  )
-  const copy = get(data.prismicIndex, 'data.body', []).find(
-    ({ __typename, primary }) =>
-      __typename === 'PrismicIndexBodyText' && primary.name === 'copy'
-  )
+function PreviousPage({ data }) {
   return (
-    <Layout links={links} copy={copy}>
+    <Layout>
       <IndexBody data={data.prismicIndex.data} />
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  query IndexQuery {
-    prismicIndex(uid: { eq: "next" }) {
+  query PreviousQuery {
+    prismicIndex(uid: { eq: "previous" }) {
       data {
         faq {
           answer {
@@ -76,9 +67,6 @@ export const pageQuery = graphql`
                 url
               }
               name
-              richtext {
-                html
-              }
             }
           }
           ... on PrismicIndexBodyVideos {
@@ -119,9 +107,6 @@ export const pageQuery = graphql`
         title {
           text
         }
-        subtitle {
-          text
-        }
         video {
           url
         }
@@ -130,4 +115,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default IndexPage
+export default PreviousPage

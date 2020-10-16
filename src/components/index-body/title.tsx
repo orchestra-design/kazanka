@@ -31,11 +31,7 @@ export function Title({ title }: Readonly<{ title: string }>) {
           relative
           md:mt-0
         `};
-        margin: 6rem 0 7.5rem;
-        @media (min-width: 768px) {
-          margin: 0;
-          padding-bottom: 20vh;
-        }        
+        margin-top: 6rem;      
       `}
     >
       <Frame

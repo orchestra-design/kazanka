@@ -9,10 +9,9 @@ import { Img } from '../img/index'
 
 import { BodyButton } from './button'
 import { Faq } from './faq'
-import { Footer } from './footer'
 import { Images } from './images'
 // import { Map } from './map'
-import { Videos } from './videos'
+import { Video } from './video'
 import {
   imageStyles,
   imgStyles,
@@ -22,6 +21,7 @@ import {
   TextContainer,
   faqStyles,
   copyStyles,
+  digitsStyles,
 } from './styles'
 
 export function Body({ body, faq }) {
@@ -39,7 +39,7 @@ export function Body({ body, faq }) {
               <React.Fragment key={uuid()}>
                 <Images items={items} />
                 <Button
-                  color="#29B2C0"
+                  color="#0D134A"
                   inverted
                   rounded={0.25}
                   size={1.75}
@@ -48,11 +48,7 @@ export function Body({ body, faq }) {
                 >
                   F.A.Q.
                 </Button>
-                <Faq
-                  faq={faq}
-                  opened={faqOpened}
-                  toggle={toggleFaq}
-                />
+                <Faq faq={faq} opened={faqOpened} toggle={toggleFaq} />
               </React.Fragment>
             )
           }
@@ -69,10 +65,7 @@ export function Body({ body, faq }) {
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    <BodyButton
-                      styles={buttonStyles}
-                      onClick={() => {}}
-                    />
+                    <BodyButton styles={buttonStyles} onClick={() => {}} />
                   </a>
                 )}
               </section>
@@ -81,7 +74,7 @@ export function Body({ body, faq }) {
         }
         if (__typename === 'PrismicIndexBodyVideos') {
           return (
-            <Videos
+            <Video
               key={uuid()}
               items={items}
               title={get(primary, 'videotitle.text')}
@@ -101,27 +94,29 @@ export function Body({ body, faq }) {
           //   )
           // }
           if (primary.name === 'links') {
-            return (
-              <Footer
-                key={uuid()}
-                text={get(primary, 'text.html')}
-                items={items}
-              />
-            )
+            return null
           }
           if (primary.name === 'copy') {
+            return null
+          }
+          if (primary.name === 'digits' && items && items.length) {
             return (
               <div
-                css={copyStyles}
+                className="bg-theme-yellow flex items-center justify-center mt-12"
+                key={uuid()}
               >
-                <TextContainer>
-                  <HTML>{get(primary, 'text.html')}</HTML>
-                </TextContainer>
+                <div css={digitsStyles}>
+                  {items.map(({ richtext }) => (
+                    <TextContainer key={uuid()}>
+                      <HTML>{get(richtext, 'html')}</HTML>
+                    </TextContainer>
+                  ))}
+                </div>
               </div>
             )
           }
           return (
-            <section key={uuid()}>
+            <section key={uuid()} className="mt-10">
               <TextContainer>
                 <HTML>{get(primary, 'text.html')}</HTML>
               </TextContainer>

@@ -22,6 +22,7 @@ const Image = styled('img')`
 interface ImgProps {
   src: ImageProps
   css?: any
+  className?: string
 }
 
 export function Img({ src, ...props }: ImgProps) {
