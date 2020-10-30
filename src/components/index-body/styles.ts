@@ -80,7 +80,7 @@ export const TextContainer = styled.div`
     ${tw`pt-2 pb-1 text-sm font-semibold `};
   }
   & p {
-    ${tw`text-sm `};
+    ${tw`text-sm text-justify `};
     &:not(:last-of-type) {
       ${tw`pb-4 `};
     }
