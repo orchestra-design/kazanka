@@ -3,7 +3,7 @@ import tw from 'tailwind.macro'
 
 export default css`
   html {
-    ${tw`font-sans`};
+    ${tw`font-sans text-theme-indigo`};
     font-size: calc(18px + 6 * ((100vw - 320px) / 1280));
   }
 

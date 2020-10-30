@@ -11,7 +11,7 @@ import { mainStyles, jumboStyles, sectionStyles, TextContainer } from './styles'
 
 export function IndexBody({ data }) {
   const image = get(data, 'image')
-  const video = get(data, 'video')
+  // const video = get(data, 'video')
   const faq = get(data, 'faq')
   const body = get(data, 'body')
   const tag = get(data, 'tag', '')
@@ -21,7 +21,7 @@ export function IndexBody({ data }) {
   return (
     <main css={mainStyles}>
       <div css={jumboStyles}>
-        <Back image={image} video={video} />
+        <Back image={image} />
         <div>
           <Title title={title} />
           <div className="text-xl text-white relative text-center mt-6 mb-20">

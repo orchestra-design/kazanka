@@ -6,65 +6,36 @@ import * as frame from './frame.svg'
 import * as frameWhite from './frame-white.svg'
 
 export const mainStyles = css`
-  ${tw`
-    w-full
-  `};
+  ${tw`w-full `};
 `
 
 export const jumboStyles = css`
-  ${tw`
-    flex items-center justify-center
-    w-full
-    md:h-screen
-    relative
-  `};
+  ${tw`relative flex items-center justify-center w-full  md:h-screen`};
 `
 
 export const sectionStyles = css`
-  ${tw`
-    my-10 pb-20
-    relative
-  `};
+  ${tw`relative pb-20 my-10 `};
 
   & > div > div {
-    ${tw`
-    flex flex-col md:flex-row
-    items-center justify-center
-  `};
+    ${tw`flex flex-col items-center justify-center  md:flex-row`};
   }
 
   &  > div > div h2 {
-    ${tw`
-      md:pr-8
-    `};
+    ${tw` md:pr-8`};
     line-height: 0.75;
   }
 `
 
 export const headingStyles = css`
-  ${tw`
-    font-sans
-    font-semibold
-    leading-tight
-    text-theme-indigo
-  `};
+  ${tw`font-sans font-semibold leading-tight  text-theme-indigo`};
 `
 
 export const frameHeadingStyles = css`
-  ${tw`
-    inline-flex flex-row flex-no-wrap
-    items-center justify-center
-  `};
+  ${tw`inline-flex flex-row flex-no-wrap items-center justify-center `};
 
   &::before,
   &::after {
-    ${tw`
-      block flex-1
-      h-full
-      bg-center bg-contain bg-no-repeat
-      text-transparent
-      mx-2
-    `};
+    ${tw`flex-1 block h-full mx-2 text-transparent bg-center bg-no-repeat bg-contain `};
     background-image: url(${frame});
     content: '.......';
   }
@@ -83,124 +54,67 @@ export const frameWhiteHeadingStyles = css`
 `
 
 export const TextContainer = styled.div`
-  ${tw`
-    font-sans
-    font-light
-    mx-auto
-    w-full max-w-xl
-    subpixel-antialiased
-    text-center
-    relative
-    px-4
-  `};
+  ${tw`relative w-full max-w-xl px-4 mx-auto font-sans subpixel-antialiased font-light text-center `};
 
   & h1 {
     ${headingStyles};
     ${frameHeadingStyles};
-    ${tw`
-      text-3xl sm:text-5xl
-      pt-12 pb-10
-    `};
+    ${tw`pt-12 pb-10 text-3xl  sm:text-5xl`};
   }
   & h2 {
     ${headingStyles};
-    ${tw`
-      text-2xl sm:text-5xl
-      pt-10 pb-8
-    `};
+    ${tw`pt-10 pb-8 text-2xl  sm:text-5xl`};
   }
   & h3 {
     ${headingStyles};
-    ${tw`
-      text-xl
-      pt-8 pb-6
-    `};
+    ${tw`pt-8 pb-6 text-xl `};
   }
   & h4 {
     ${headingStyles};
-    ${tw`
-      font-semibold
-      text-lg
-      pt-8 pb-6
-    `};
+    ${tw`pt-8 pb-6 text-lg font-semibold `};
   }
   & h5 {
-    ${tw`
-      font-semibold
-      text-md
-      pt-4 pb-3
-    `};
+    ${tw`pt-4 pb-3 font-semibold  text-md`};
   }
   & h6 {
-    ${tw`
-      font-semibold
-      text-sm
-      pt-2 pb-1
-    `};
+    ${tw`pt-2 pb-1 text-sm font-semibold `};
   }
   & p {
-    ${tw`
-      text-sm
-      text-justify
-    `};
+    ${tw`text-sm `};
     &:not(:last-of-type) {
-      ${tw`
-        pb-4
-    `};
+      ${tw`pb-4 `};
     }
   }
   & ul {
-    ${tw`
-      text-left
-      py-4
-    `};
+    ${tw`py-4 text-left `};
   }
   & li {
-    ${tw`
-      text-sm
-    `};
+    ${tw`text-sm `};
     text-indent: 3rem;
     &:not(:last-of-type) {
-      ${tw`
-        pb-4
-    `};
+      ${tw`pb-4 `};
     }
   }
 `
 
 export const imageStyles = css`
-  ${tw`
-    w-screen md:h-screen
-    overflow-hidden
-  `};
+  ${tw`w-screen overflow-hidden  md:h-screen`};
 `
 
 export const imgStyles = css`
-  ${tw`
-    h-full
-  `};
+  ${tw`h-full `};
 `
 
 export const imageSectionStyles = css`
-  ${tw`
-    relative w-full
-    my-10
-  `};
+  ${tw`relative w-full my-10 `};
 `
 
 export const buttonWrapperStyles = css`
-  ${tw`
-    absolute inset-0
-    flex items-center justify-center
-    p-4
-  `};
+  ${tw`absolute inset-0 flex items-center justify-center p-4 `};
 `
 
 export const buttonStyles = css`
-  ${tw`
-    cursor-pointer
-    w-3/4 md:w-1/2
-  `};
+  ${tw`w-3/4 cursor-pointer  md:w-1/2`};
 
   & * {
     transition: all 200ms ease-in-out;
@@ -220,110 +134,57 @@ export const videoFrameStyles = css`
   ${tw`relative h-full overflow-hidden`};
 
   & iframe {
-    ${tw`
-      absolute inset-0
-      h-full
-    `};
+    ${tw`absolute inset-0 h-full `};
 
     width: 101%;
   }
 `
 
 export const rowStyles = css`
-  ${tw`
-    items-center
-  `};
+  ${tw`items-center `};
 `
 
 export const imagesStyles = css`
-  ${tw`
-    px-8 pt-12
-    w-full max-w-xl
-    mx-auto
-  `};
+  ${tw`w-full max-w-xl px-8 pt-12 mx-auto `};
 `
 
 export const linksStyles = css`
-  ${tw`
-    py-12
-  `};
+  ${tw`py-12 `};
 `
 
 export const frameStyles = css`
-  ${tw`
-    w-full h-full
-    bg-gray-400
-  `};
+  ${tw`w-full h-full bg-gray-400 `};
 `
 
 export const faqStyles = css`
-  ${tw`
-    block
-    mx-auto
-    mb-20
-    mt-10
-  `};
+  ${tw`block mx-auto mt-10 mb-20 `};
 `
 
 export const copyStyles = css`
-  ${tw`
-    w-full
-    pt-10
-    relative
-    bg-theme-indigo
-    text-white
-  `};
+  ${tw`relative w-full pt-10 text-white  bg-theme-indigo`};
 
   & a {
-    ${tw`
-      underline
-    `};
+    ${tw`underline `};
   }
 
   & div {
-    ${tw`
-      flex flex-col md:flex-row
-      justify-between
-      w-full
-    `};
+    ${tw`flex flex-col justify-between w-full  md:flex-row`};
   }
   & p {
-    ${tw`
-      text-xxs
-      px-4
-    `};
+    ${tw`px-4  text-xxs`};
   }
 `
 
 export const digitsStyles = css`
-  ${tw`
-    w-full max-w-5xl
-    pt-20
-    pb-10
-    px-4
-    relative
-    flex flex-row flex-wrap
-    items-center justify-center
-  `};
+  ${tw`relative flex flex-row flex-wrap items-center justify-center w-full max-w-5xl px-4 pt-20 pb-10 `};
 
   & > div {
-    ${tw`
-      md:max-w-1/3
-      mb-10
-      mx-0
-    `};
+    ${tw`mx-0 mb-10  md:max-w-1/3`};
   }
   & > div h2 {
-    ${tw`
-      text-5xl md:text-6xl
-      pt-1
-      pb-0
-      whitespace-no-wrap
-    `};
+    ${tw`pt-1 pb-0 text-5xl whitespace-no-wrap  md:text-6xl`};
   }
   & > div p {
-    ${tw`
-      text-center
-    `};
+    ${tw`text-center `};
   }
 `

@@ -52,6 +52,17 @@ export const pageQuery = graphql`
         title {
           text
         }
+        image {
+          url
+          alt
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1920, quality: 80, jpegProgressive: true) {
+                ...GatsbyImageSharpFluid_noBase64
+              }
+            }
+          }
+        }
         body {
           __typename
           ... on PrismicParkBodyImage {

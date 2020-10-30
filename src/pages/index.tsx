@@ -89,9 +89,7 @@ export const pageQuery = graphql`
             }
             items {
               videosrc {
-                html
-                thumbnail_url
-                title
+                embed_url
               }
               text {
                 html
