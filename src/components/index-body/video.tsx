@@ -23,7 +23,7 @@ const opts = (id) => ({
   width: '712',
   playerVars: {
     // https://developers.google.com/youtube/player_parameters
-    autoplay: 1,
+    autoplay: 0,
     modestbranding: 1,
     showinfo: 0,
     rel: 0,
@@ -34,7 +34,7 @@ const opts = (id) => ({
     loop: 1,
     color: 'white',
     //origin: 'http://localhost:8000/' || 'http://localhost:5000/',
-    playlist: id,
+    // playlist: id,
   },
 })
 
