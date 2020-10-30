@@ -4,159 +4,83 @@ import tw from 'tailwind.macro'
 import { headingStyles } from '../index-body/styles'
 
 export const TextContainer = styled.div`
-  ${tw`
-    font-sans
-    font-light
-    subpixel-antialiased
-  `};
+  ${tw`font-sans subpixel-antialiased font-light `};
   & h2 {
     ${headingStyles};
-    ${tw`
-      text-2xl sm:text-5xl
-      pb-8
-    `};
+    ${tw`pb-8 text-2xl  sm:text-5xl`};
   }
   & h3 {
     ${headingStyles};
-    ${tw`
-      text-xl
-      pb-6
-    `};
+    ${tw`pb-6 text-xl `};
   }
   & h4 {
     ${headingStyles};
-    ${tw`
-      font-semibold
-      text-lg
-      pb-6
-    `};
+    ${tw`pb-6 text-lg font-semibold `};
   }
   & h5 {
-    ${tw`
-      font-semibold
-      text-md
-      pb-3
-    `};
+    ${tw`pb-3 font-semibold  text-md`};
   }
   & h6 {
-    ${tw`
-      font-semibold
-      text-sm
-      pb-1
-    `};
+    ${tw`pb-1 text-sm font-semibold `};
   }
   & p {
-    ${tw`
-      text-sm
-      text-justify
-    `};
+    ${tw`text-sm `};
     &:not(:last-of-type) {
-      ${tw`
-        pb-4
-    `};
+      ${tw`pb-4 `};
     }
   }
   & ul {
-    ${tw`
-      text-left
-      py-4
-    `};
+    ${tw`py-4 text-left `};
   }
   & li {
-    ${tw`
-      text-sm
-    `};
+    ${tw`text-sm `};
     text-indent: 3rem;
     &:not(:last-of-type) {
-      ${tw`
-        pb-4
-    `};
+      ${tw`pb-4 `};
     }
   }
   & a {
-    ${tw`
-      font-semibold
-      leading-tight
-      text-theme-indigo
-    `};
+    ${tw`font-semibold leading-tight  text-theme-indigo`};
   }
 `
 
 export const DescriptionContainer = styled.div`
-  ${tw`
-    font-sans
-    font-light
-    subpixel-antialiased
-    text-xs
-  `};
+  ${tw`font-sans text-xs subpixel-antialiased font-light `};
   & h2 {
     ${headingStyles};
-    ${tw`
-      text-xl sm:text-3xl
-      pb-2
-    `};
+    ${tw`pb-2 text-xl  sm:text-3xl`};
   }
   & h3 {
     ${headingStyles};
-    ${tw`
-      text-lg
-      pb-2
-    `};
+    ${tw`pb-2 text-lg `};
   }
   & h4 {
     ${headingStyles};
-    ${tw`
-      font-semibold
-      text-md
-      pb-1
-    `};
+    ${tw`pb-1 font-semibold  text-md`};
   }
   & h5 {
-    ${tw`
-      font-semibold
-      text-md
-      pb-1
-    `};
+    ${tw`pb-1 font-semibold  text-md`};
   }
   & h6 {
-    ${tw`
-      font-semibold
-      text-sm
-    `};
+    ${tw`text-sm font-semibold `};
   }
   & p {
-    ${tw`
-      text-xs
-      text-justify
-    `};
+    ${tw`text-xs `};
     &:not(:last-of-type) {
-      ${tw`
-        pb-2
-    `};
+      ${tw`pb-2 `};
     }
   }
   & ul {
-    ${tw`
-      text-left
-      py-2
-    `};
+    ${tw`py-2 text-left `};
   }
   & li {
-    ${tw`
-      text-xs
-    `};
+    ${tw`text-xs `};
     text-indent: 1.5rem;
     &:not(:last-of-type) {
-      ${tw`
-        pb-2
-    `};
+      ${tw`pb-2 `};
     }
   }
   & a {
-    ${tw`
-      font-semibold
-      leading-tight
-      text-theme-indigo
-    `};
+    ${tw`font-semibold leading-tight  text-theme-indigo`};
   }
 `

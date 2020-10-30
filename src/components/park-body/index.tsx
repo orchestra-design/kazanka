@@ -6,6 +6,9 @@ import { css } from '@emotion/core'
 import { HTML } from '../html/index'
 import If from '../if/index'
 import * as back from '../index-body/back.svg'
+import { Back } from '../index-body/back'
+import { Title } from '../index-body/title'
+import { jumboStyles } from '../index-body/styles'
 import { Images } from '../body/images'
 import { ImageCaption } from '../body/image-caption'
 import { TwoCols } from '../body/two-cols'
@@ -14,30 +17,31 @@ import { TextContainer } from '../body/styles'
 
 export function ParkBody({ data }) {
   const title = get(data, 'title.text')
+  const image = get(data, 'image')
   const [firstBlock, ...body] = get(data, 'body')
   const firstBlockText = get(firstBlock, 'primary.text.html')
 
   return (
     <main className="min-h-screen">
+      <If predicate={!!title}>
+        <div css={jumboStyles}>
+          <Back image={image} color="#F6936B" />
+          <div className="mb-16">
+            <Title title={title} />
+          </div>
+        </div>
+      </If>
       <section
         className={`
           font-sans
           bg-contain bg-no-repeat
-          bg-theme-yellow
+          bg-theme-orange
           w-full h-full
-          px-8 py-16
+          px-8 pb-16 pt-8
           mb-12
-        `}
-        css={css`
-          @media (min-width: 768px) {
-            background-image: url(${back});
-          }
         `}
       >
         <div className="max-w-3xl mx-auto">
-          <If predicate={!!title}>
-            <h1 className="font-semibold text-4xl md:text-5xl">{title}</h1>
-          </If>
           <If predicate={!!firstBlockText}>
             <HTML>{firstBlockText}</HTML>
           </If>
