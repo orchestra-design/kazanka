@@ -6,16 +6,8 @@ import { Layout } from '../components/layout/index'
 import { ParkBody } from '../components/park-body/index'
 
 function ManzaraParkPage({ data }) {
-  const links = get(data.prismicIndex, 'data.body', []).find(
-    ({ __typename, primary }) =>
-      __typename === 'PrismicIndexBodyText' && primary.name === 'links'
-  )
-  const copy = get(data.prismicIndex, 'data.body', []).find(
-    ({ __typename, primary }) =>
-      __typename === 'PrismicIndexBodyText' && primary.name === 'copy'
-  )
   return (
-    <Layout links={links} copy={copy}>
+    <Layout>
       <ParkBody data={data.prismicPark.data} />
     </Layout>
   )
@@ -23,30 +15,6 @@ function ManzaraParkPage({ data }) {
 
 export const pageQuery = graphql`
   query ManzaraParkQuery {
-    prismicIndex(uid: { eq: "next" }) {
-      data {
-        body {
-          __typename
-          ... on PrismicIndexBodyText {
-            primary {
-              name
-              text {
-                html
-              }
-            }
-            items {
-              link {
-                url
-              }
-              name
-              richtext {
-                html
-              }
-            }
-          }
-        }
-      }
-    }
     prismicPark(uid: { eq: "manzara" }) {
       data {
         title {
