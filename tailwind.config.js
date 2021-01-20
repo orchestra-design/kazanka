@@ -11,6 +11,7 @@ module.exports = {
     },
     colors: {
       theme: {
+        white: '#FFFFFF',
         blue: '#265E8E',
         green: '#11A193',
         indigo: '#0D134A',
@@ -156,9 +157,10 @@ module.exports = {
       48: '12rem',
       56: '14rem',
       64: '16rem',
+      '1/5': '20%',
+      '1/4': '25%',
       '1/3': '33.333334%',
       '2/3': '66.666667%',
-      '1/4': '25%',
       '3/4': '75%',
     },
     backgroundColor: (theme) => theme('colors'),

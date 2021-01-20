@@ -10,14 +10,14 @@ export const mainStyles = css`
 `
 
 export const jumboStyles = css`
-  ${tw`relative flex items-center justify-center w-full  md:h-screen`};
+  ${tw`relative flex items-center justify-center w-full md:h-screen`};
 `
 
 export const sectionStyles = css`
   ${tw`relative pb-20 my-10 `};
 
   & > div > div {
-    ${tw`flex flex-col items-center justify-center  md:flex-row`};
+    ${tw`flex flex-col items-center justify-center md:flex-row`};
   }
 
   &  > div > div h2 {
@@ -27,7 +27,7 @@ export const sectionStyles = css`
 `
 
 export const headingStyles = css`
-  ${tw`font-sans font-semibold leading-tight  text-theme-indigo`};
+  ${tw`font-sans font-semibold leading-tight text-theme-indigo`};
 `
 
 export const frameHeadingStyles = css`
@@ -59,11 +59,11 @@ export const TextContainer = styled.div`
   & h1 {
     ${headingStyles};
     ${frameHeadingStyles};
-    ${tw`pt-12 pb-10 text-3xl  sm:text-5xl`};
+    ${tw`pt-12 pb-10 text-3xl sm:text-5xl`};
   }
   & h2 {
     ${headingStyles};
-    ${tw`pt-10 pb-8 text-2xl  sm:text-5xl`};
+    ${tw`pt-10 pb-8 text-2xl sm:text-5xl`};
   }
   & h3 {
     ${headingStyles};
@@ -74,7 +74,7 @@ export const TextContainer = styled.div`
     ${tw`pt-8 pb-6 text-lg font-semibold `};
   }
   & h5 {
-    ${tw`pt-4 pb-3 font-semibold  text-md`};
+    ${tw`pt-4 pb-3 font-semibold text-md`};
   }
   & h6 {
     ${tw`pt-2 pb-1 text-sm font-semibold `};
@@ -98,7 +98,7 @@ export const TextContainer = styled.div`
 `
 
 export const imageStyles = css`
-  ${tw`w-screen overflow-hidden  md:h-screen`};
+  ${tw`w-screen overflow-hidden md:h-screen`};
 `
 
 export const imgStyles = css`
@@ -114,7 +114,7 @@ export const buttonWrapperStyles = css`
 `
 
 export const buttonStyles = css`
-  ${tw`w-3/4 cursor-pointer  md:w-1/2`};
+  ${tw`w-3/4 cursor-pointer md:w-1/2`};
 
   & * {
     transition: all 200ms ease-in-out;
@@ -161,17 +161,17 @@ export const faqStyles = css`
 `
 
 export const copyStyles = css`
-  ${tw`relative w-full pt-10 text-white  bg-theme-indigo`};
+  ${tw`relative w-full pt-10 text-white bg-theme-indigo`};
 
   & a {
     ${tw`underline `};
   }
 
   & div {
-    ${tw`flex flex-col justify-between w-full  md:flex-row`};
+    ${tw`flex flex-col justify-between w-full md:flex-row`};
   }
   & p {
-    ${tw`px-4  text-xxs`};
+    ${tw`px-4 text-xxs`};
   }
 `
 
@@ -179,10 +179,24 @@ export const digitsStyles = css`
   ${tw`relative flex flex-row flex-wrap items-center justify-center w-full max-w-5xl px-4 pt-20 pb-10 `};
 
   & > div {
-    ${tw`mx-0 mb-10  md:max-w-1/3`};
+    ${tw`mx-0 mb-10 md:max-w-1/3`};
   }
   & > div h2 {
-    ${tw`pt-1 pb-0 text-5xl whitespace-no-wrap  md:text-6xl`};
+    ${tw`pt-1 pb-0 text-5xl whitespace-no-wrap md:text-6xl`};
+  }
+  & > div p {
+    ${tw`text-center `};
+  }
+`
+
+export const smallDigitsStyles = css`
+  ${tw`relative flex flex-row flex-wrap items-center justify-center w-full max-w-5xl px-4 -mx-8 md:flex-no-wrap`};
+
+  & > div {
+    ${tw`mx-0 mb-10 text-center md:w-1/5`};
+  }
+  & > div h2 {
+    ${tw`pt-1 pb-0 text-3xl whitespace-no-wrap md:text-5xl`};
   }
   & > div p {
     ${tw`text-center `};

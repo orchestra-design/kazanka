@@ -22,36 +22,13 @@ function ManzaraParkPage({ data }) {
 }
 
 export const pageQuery = graphql`
-  query ManzaraParkQuery {
-    prismicIndex(uid: { eq: "next" }) {
-      data {
-        body {
-          __typename
-          ... on PrismicIndexBodyText {
-            primary {
-              name
-              text {
-                html
-              }
-            }
-            items {
-              link {
-                url
-              }
-              name
-              richtext {
-                html
-              }
-            }
-          }
-        }
-      }
-    }
-    prismicPark(uid: { eq: "manzara" }) {
+  query ManzaraParkQuery($uid: String!) {
+    prismicPark(uid: { eq: $uid }) {
       data {
         title {
           text
         }
+        color
         image {
           url
           alt
@@ -145,6 +122,13 @@ export const pageQuery = graphql`
                 html
               }
               righttext {
+                html
+              }
+            }
+          }
+          ... on PrismicParkBodyDigits {
+            items {
+              richtext {
                 html
               }
             }

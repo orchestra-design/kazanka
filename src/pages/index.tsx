@@ -125,6 +125,16 @@ export const pageQuery = graphql`
         }
       }
     }
+    allPrismicPark {
+      nodes {
+        data {
+          title {
+            text
+          }
+        }
+        uid
+      }
+    }
   }
 `
 
