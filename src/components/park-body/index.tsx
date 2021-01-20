@@ -18,8 +18,8 @@ export function ParkBody({ data }) {
   const image = get(data, 'image')
   const [firstBlock, ...body] = get(data, 'body')
   const firstBlockText = get(firstBlock, 'primary.text.html')
-  const firstBlockItems = get(firstBlock, 'items')
-  const color = get(data, 'color', 'yellow')
+  const firstBlockItems = get(firstBlock, 'items', [])
+  const color = get(data, 'color') || 'yellow'
 
   return (
     <main className="min-h-screen">
@@ -37,7 +37,7 @@ export function ParkBody({ data }) {
         <If predicate={!!firstBlockText}>
           <HTML className="max-w-5xl mx-auto">{firstBlockText}</HTML>
         </If>
-        <If predicate={firstBlockItems && firstBlockItems.length !== 0}>
+        <If predicate={firstBlockItems.length > 0}>
           <div className="flex items-center justify-center mt-12" key={uuid()}>
             <div css={smallDigitsStyles}>
               {firstBlockItems.map(({ richtext }) => (
