@@ -1,21 +1,12 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { get } from 'lodash'
 
 import { Layout } from '../components/layout/index'
 import { ParkBody } from '../components/park-body/index'
 
 function ManzaraParkPage({ data }) {
-  const links = get(data.prismicIndex, 'data.body', []).find(
-    ({ __typename, primary }) =>
-      __typename === 'PrismicIndexBodyText' && primary.name === 'links'
-  )
-  const copy = get(data.prismicIndex, 'data.body', []).find(
-    ({ __typename, primary }) =>
-      __typename === 'PrismicIndexBodyText' && primary.name === 'copy'
-  )
   return (
-    <Layout links={links} copy={copy}>
+    <Layout>
       <ParkBody data={data.prismicPark.data} />
     </Layout>
   )

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Global } from '@emotion/core'
 import { useFavicon } from 'react-use'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import * as uuid from 'uuid/v1'
 import { get } from 'lodash'
@@ -20,8 +21,44 @@ import { layoutStyles } from './styles'
 
 import * as favicon from './favicon.png'
 
-export function Layout({ children, links = undefined, copy = undefined }) {
+export function Layout({ children }) {
   useFavicon(favicon)
+  const data = useStaticQuery(graphql`
+    query LayoutQuery {
+      prismicIndex(uid: { eq: "next" }) {
+        data {
+          body {
+            __typename
+            ... on PrismicIndexBodyText {
+              primary {
+                name
+                text {
+                  html
+                }
+              }
+              items {
+                link {
+                  url
+                }
+                name
+                richtext {
+                  html
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  const links = get(data.prismicIndex, 'data.body', []).find(
+    ({ __typename, primary }) =>
+      __typename === 'PrismicIndexBodyText' && primary.name === 'links'
+  )
+  const copy = get(data.prismicIndex, 'data.body', []).find(
+    ({ __typename, primary }) =>
+      __typename === 'PrismicIndexBodyText' && primary.name === 'copy'
+  )
 
   return (
     <div css={layoutStyles}>

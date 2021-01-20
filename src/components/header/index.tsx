@@ -18,9 +18,8 @@ function Link({ children, href, ...props }) {
 }
 
 const LINKS = [
-  { href: 'manzara', title: 'Парк Манзара' },
-  // { href: 'engagement', title: 'Вовлечение' },
   { href: 'princips', title: 'Принципы' },
+  // { href: 'engagement', title: 'Вовлечение' },
   // { href: 'parks', title: 'Парки' },
 ] as const
 

@@ -20,8 +20,6 @@ export function Images({ items = [] }) {
     setCurrent((prev) => (prev + 1) % items.length)
   }, [])
 
-  console.log(current)
-
   if (items.length === 0 || !items[current]) return null
 
   return (
@@ -29,12 +27,12 @@ export function Images({ items = [] }) {
       {[items[current]].map(({ imgimage, imgcaption }) => {
         return (
           <div key={uuid()}>
-            <div className="relative cursor-pointer">
+            <div className="relative">
               <Img className="w-full" src={imgimage} />
               <If predicate={items.length > 1}>
                 <div className="absolute inset-0 flex flex-row flex-no-wrap items-center justify-center text-xl text-white">
                   <div
-                    className="flex items-center justify-start flex-1 h-full p-4 opacity-0 hover:opacity-100"
+                    className="flex items-center justify-start flex-1 h-full p-4 opacity-0 cursor-pointer hover:opacity-100"
                     css={css`
                       transition: opacity 200ms ease-in-out;
                       background: linear-gradient(
@@ -48,7 +46,7 @@ export function Images({ items = [] }) {
                     {'←'}
                   </div>
                   <div
-                    className="flex items-center justify-end flex-1 h-full p-4 opacity-0 hover:opacity-100"
+                    className="flex items-center justify-end flex-1 h-full p-4 opacity-0 cursor-pointer hover:opacity-100"
                     css={css`
                       transition: opacity 200ms ease-in-out;
                       background: linear-gradient(
