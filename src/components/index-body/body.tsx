@@ -23,8 +23,9 @@ import {
   copyStyles,
   digitsStyles,
 } from './styles'
+import { Map } from './map'
 
-export function Body({ body, faq }) {
+export function Body({ body, faq, layers, highlights }) {
   if (!body) return null
 
   // const [popupOpened, togglePopup] = useToggle(false)
@@ -85,7 +86,13 @@ export function Body({ body, faq }) {
           if (!primary) return null
           if (primary.name === 'map') {
             return (
-              <section title="map">Map</section>
+              <section
+                key="map"
+                id="map"
+                className="w-full max-w-5xl pt-12 mx-auto md:px-8"
+              >
+                <Map layers={layers} highlights={highlights} />
+              </section>
             )
           }
           if (primary.name === 'links') {

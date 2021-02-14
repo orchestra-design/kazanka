@@ -13,6 +13,8 @@ export function IndexBody({ data }) {
   const image = get(data, 'image')
   // const video = get(data, 'video')
   const faq = get(data, 'faq')
+  const layers = get(data, 'layers')
+  const highlights = get(data, 'highlights')
   const body = get(data, 'body')
   const tag = get(data, 'tag', '')
   const title = get(data, 'title.text', '')
@@ -36,7 +38,7 @@ export function IndexBody({ data }) {
         </TextContainer>
         {/* <BodyTag tag={tag} textColor="#0D134A" /> */}
       </div>
-      <Body body={body} faq={faq} />
+      <Body body={body} faq={faq} layers={layers} highlights={highlights} />
     </main>
   )
 }

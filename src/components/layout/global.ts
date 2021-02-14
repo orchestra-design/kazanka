@@ -5,10 +5,12 @@ export default css`
   html {
     ${tw`font-sans text-theme-indigo`};
     font-size: calc(18px + 6 * ((100vw - 320px) / 1280));
+    scroll-behavior: smooth;
   }
 
   body {
     ${tw`bg-white`};
+    scroll-behavior: smooth;
   }
 
   a {

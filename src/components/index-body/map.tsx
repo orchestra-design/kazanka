@@ -1,36 +1,101 @@
 import * as React from 'react'
-import { css } from '@emotion/core'
-import tw from 'tailwind.macro'
-import { useLockBodyScroll } from 'react-use'
+import Imgix from 'react-imgix'
+import { get } from 'lodash'
+import { navigateTo } from 'gatsby-link'
 
-import { Button } from '../button/index'
-import { Popup } from '../popup/index'
+import MapHovers from './map-hovers'
 
-import { frameStyles } from './styles'
+function cleanURL(url: string | null | undefined) {
+  if (url) return url.replace('?auto=compress,format', '')
+  return null
+}
 
-export function Map({ /* text, */ opened, togglePopup }) {
-  if (!opened) return null
+export function Map({ layers, highlights }) {
+  const [currentLayer, setCurrentLayer] = React.useState<number>(0)
+  const [currentHighlight, setCurrentHighlight] = React.useState<number | null>(
+    null
+  )
+  const [loaded, setLoaded] = React.useState<number>(0)
 
-  useLockBodyScroll(opened)
+  const handleClick = React.useCallback((num) => {
+    const link = get(
+      highlights.find((h) => get(h, 'highlightsid') === num),
+      'parklink.uid'
+    )
+    if (link) {
+      navigateTo(`/${link}`)
+    }
+  }, [])
+
+  const handleHover = React.useCallback((num) => {
+    setCurrentHighlight(num)
+  }, [])
+
+  const handleImgOnLoad = React.useCallback(() => {
+    setLoaded((current) => (current += 1))
+  }, [])
+
+  const layerImage =
+    layers &&
+    get(
+      layers.find((h) => get(h, 'layerid') === currentLayer),
+      'layerimage'
+    )
+  const highlightImage =
+    currentHighlight !== null &&
+    highlights &&
+    get(
+      highlights.find((h) => get(h, 'highlightsid') === currentHighlight),
+      'highlightsimage'
+    )
 
   return (
-    <Popup>
-      <Button
-        css={css`
-          ${tw`absolute`};
-          bottom: 0.5rem;
-          left: 0.5rem;
-        `}
-        onClick={() => togglePopup(false)}
-        size={0.75}
-      >
-        ×
-      </Button>
-      <iframe
-        css={frameStyles}
-        src="https://kazanka_river.mysocialpinpoint.com/kanzaka/map"
-        scrolling="false"
-      />
-    </Popup>
+    <div className="relative">
+      {get(layerImage, 'url') ? (
+        <Imgix
+          src={cleanURL(layerImage.url)}
+          sizes="100vw"
+          htmlAttributes={{
+            alt: layerImage.alt,
+            onLoad: () => handleImgOnLoad,
+          }}
+        />
+      ) : null}
+
+      {get(highlightImage, 'url') ? (
+        <div className="absolute inset-0">
+          <Imgix
+            src={cleanURL(highlightImage.url)}
+            sizes="100vw"
+            htmlAttributes={{
+              alt: highlightImage.alt,
+              onLoad: () => handleImgOnLoad,
+            }}
+          />
+        </div>
+      ) : null}
+      <div className="absolute inset-0">
+        <MapHovers onHover={handleHover} onClick={handleClick} />
+      </div>
+      <div className="flex flex-col w-full p-2 md:w-auto md:mt-0 md:top-0 md:left-0 md:p-4 md:absolute">
+        {layers &&
+          layers.map(
+            (layer) =>
+              get(layer, 'layername') && (
+                <button
+                  role="button"
+                  onClick={() => setCurrentLayer(layer.layerid)}
+                  className={`block px-2 py-1 mb-1 focus:outline-none text-white border border-solid text-xxs hover:text-theme-indigo hover:bg-transparent${
+                    currentLayer === layer.layerid
+                      ? ' bg-theme-teal border-theme-teal'
+                      : ' border-theme-indigo bg-theme-indigo'
+                  }`}
+                >
+                  {layer.layername.text}
+                </button>
+              )
+          )}
+      </div>
+    </div>
   )
 }

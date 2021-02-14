@@ -228,5 +228,79 @@
         "label": "FAQ"
       }
     }
+  },
+  "Map": {
+    "layers": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "layerimage": {
+            "type": "Image",
+            "config": {
+              "constraint": {
+                "width": null
+              },
+              "thumbnails": [],
+              "label": "LayerImage"
+            }
+          },
+          "layerid": {
+            "type": "Number",
+            "config": {
+              "label": "LayerID",
+              "placeholder": "Number of order"
+            }
+          },
+          "layername": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading4",
+              "label": "LayerName",
+              "placeholder": "Name"
+            }
+          }
+        },
+        "label": "Layers"
+      }
+    },
+    "highlights": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "highlightsimage": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "HighlightsImage"
+            }
+          },
+          "highlightsid": {
+            "type": "Number",
+            "config": {
+              "label": "HighlightsID",
+              "placeholder": "Number of order"
+            }
+          },
+          "highlightsname": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading6",
+              "label": "HighlightsName",
+              "placeholder": "Name"
+            }
+          },
+          "parklink": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "label": "ParkLink",
+              "placeholder": "Link to Park"
+            }
+          }
+        },
+        "label": "Highlights"
+      }
+    }
   }
 }

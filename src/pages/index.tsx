@@ -24,6 +24,37 @@ export const pageQuery = graphql`
             text
           }
         }
+        layers {
+          layerid
+          layerimage {
+            alt
+            url
+            dimensions {
+              height
+              width
+            }
+          }
+          layername {
+            text
+          }
+        }
+        highlights {
+          highlightsid
+          highlightsimage {
+            alt
+            dimensions {
+              width
+              height
+            }
+            url
+          }
+          highlightsname {
+            text
+          }
+          parklink {
+            uid
+          }
+        }
         body {
           __typename
           ... on PrismicIndexBodyImage {

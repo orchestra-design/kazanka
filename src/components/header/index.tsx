@@ -55,9 +55,12 @@ export function Header() {
           ← На главную страницу
         </Link>
         <ul className="flex flex-row flex-no-wrap ml-auto">
-          <Link href="/#map" activeClassName="hidden">
+          <a
+            href="/#map"
+            className="inline-block px-2 py-1 text-white border border-solid text-xxs border-theme-indigo bg-theme-indigo hover:text-theme-indigo hover:bg-transparent"
+          >
             Карта парков
-          </Link>
+          </a>
           {LINKS.map(({ title, href }) => (
             <li key={href} className="ml-4">
               <Link href={href} activeClassName="hidden">
@@ -78,7 +81,11 @@ export function Header() {
                 <ul ref={ref} className="absolute right-0 flex flex-col">
                   {parks.nodes.map(({ uid, data }) => (
                     <li key={uid} className="">
-                      <Link href={`/${uid}`} className="w-full" activeClassName="bg-theme-teal border-theme-teal">
+                      <Link
+                        href={`/${uid}`}
+                        className="w-full"
+                        activeClassName="bg-theme-teal border-theme-teal"
+                      >
                         {data.title.text}
                       </Link>
                     </li>
