@@ -106,17 +106,17 @@ export const pageQuery = graphql`
               }
             }
           }
-          ... on PrismicParkBodyTwoColumnText {
-            slice_label
-            items {
-              leftcol {
-                html
-              }
-              righttext {
-                html
-              }
-            }
-          }
+          # ... on PrismicParkBodyTwoColumnText {
+          #   slice_label
+          #   items {
+          #     leftcol {
+          #       html
+          #     }
+          #     righttext {
+          #       html
+          #     }
+          #   }
+          # }
           ... on PrismicParkBodyDigits {
             items {
               richtext {
