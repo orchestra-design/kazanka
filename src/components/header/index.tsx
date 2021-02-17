@@ -23,7 +23,7 @@ function Link({ children, className, href, ...props }: any) {
 const LINKS = [
   { href: '/princips', title: 'Принципы' },
   // { href: 'engagement', title: 'Вовлечение' },
-  // { href: 'parks', title: 'Парки' },
+  // { href: 'dialogs', title: 'Диалоги о реке' },
 ] as const
 
 export function Header() {
@@ -55,32 +55,27 @@ export function Header() {
           ← На главную страницу
         </Link>
         <ul className="flex flex-row flex-no-wrap ml-auto">
-          <a
-            href="/#map"
-            className="inline-block px-2 py-1 text-white border border-solid text-xxs border-theme-indigo bg-theme-indigo hover:text-theme-indigo hover:bg-transparent"
-          >
-            Карта парков
-          </a>
-          {LINKS.map(({ title, href }) => (
-            <li key={href} className="ml-4">
-              <Link href={href} activeClassName="hidden">
-                {title}
-              </Link>
-            </li>
-          ))}
           <If predicate={parks.nodes.length > 0}>
-            <li className="relative ml-4">
-              <button
-                role="button"
-                onClick={toggle}
+            <li
+              className="relative ml-4"
+              onClick={toggle}
+              onMouseEnter={() => toggle(true)}
+            >
+              <a
+                href="/#map"
                 className="inline-block px-2 py-1 text-white border border-solid text-xxs border-theme-indigo bg-theme-indigo hover:text-theme-indigo hover:bg-transparent"
               >
-                Диалоги о реке
-              </button>
+                Карта парков
+              </a>
               <If predicate={opened}>
-                <ul ref={ref} className="absolute right-0 flex flex-col">
+                <ul
+                  ref={ref}
+                  className="absolute left-0 flex flex-col"
+                  onMouseOver={() => toggle(true)}
+                  onMouseLeave={() => toggle(false)}
+                >
                   {parks.nodes.map(({ uid, data }) => (
-                    <li key={uid} className="">
+                    <li key={uid} className="whitespace-no-wrap">
                       <Link
                         href={`/${uid}`}
                         className="w-full"
@@ -94,6 +89,13 @@ export function Header() {
               </If>
             </li>
           </If>
+          {LINKS.map(({ title, href }) => (
+            <li key={href} className="ml-4">
+              <Link href={href} activeClassName="hidden">
+                {title}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>

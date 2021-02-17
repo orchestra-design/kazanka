@@ -2,6 +2,7 @@ import * as React from 'react'
 import Imgix from 'react-imgix'
 import { get } from 'lodash'
 import { navigateTo } from 'gatsby-link'
+import { css } from '@emotion/core'
 
 import MapHovers from './map-hovers'
 
@@ -41,13 +42,6 @@ export function Map({ layers, highlights }) {
       layers.find((h) => get(h, 'layerid') === currentLayer),
       'layerimage'
     )
-  const highlightImage =
-    currentHighlight !== null &&
-    highlights &&
-    get(
-      highlights.find((h) => get(h, 'highlightsid') === currentHighlight),
-      'highlightsimage'
-    )
 
   return (
     <div className="relative">
@@ -61,21 +55,35 @@ export function Map({ layers, highlights }) {
           }}
         />
       ) : null}
-
-      {get(highlightImage, 'url') ? (
-        <div className="absolute inset-0">
-          <Imgix
-            src={cleanURL(highlightImage.url)}
-            sizes="100vw"
-            htmlAttributes={{
-              alt: highlightImage.alt,
-              onLoad: () => handleImgOnLoad,
-            }}
-          />
-        </div>
-      ) : null}
+      {highlights.map((h) =>
+        get(h, 'highlightsid') !== undefined ? (
+          <div
+            key={h.highlightsid}
+            className={`absolute inset-0 ${
+              h.highlightsid === currentHighlight ? 'opacity-1' : 'opacity-0'
+            }`}
+            css={css`
+              will-change: opacity;
+              transition: opacity 400ms ease-in-out;
+            `}
+          >
+            <Imgix
+              src={cleanURL(h.highlightsimage.url)}
+              sizes="100vw"
+              htmlAttributes={{
+                alt: h.highlightsimage.alt,
+                onLoad: () => handleImgOnLoad,
+              }}
+            />
+          </div>
+        ) : null
+      )}
       <div className="absolute inset-0">
-        <MapHovers onHover={handleHover} onClick={handleClick} />
+        <MapHovers
+          onHover={handleHover}
+          onClick={handleClick}
+          highlights={highlights}
+        />
       </div>
       <div className="flex flex-col w-full p-2 md:w-auto md:mt-0 md:top-0 md:left-0 md:p-4 md:absolute">
         {layers &&
@@ -83,6 +91,7 @@ export function Map({ layers, highlights }) {
             (layer) =>
               get(layer, 'layername') && (
                 <button
+                  key={layer.layerid}
                   role="button"
                   onClick={() => setCurrentLayer(layer.layerid)}
                   className={`block px-2 py-1 mb-1 focus:outline-none text-white border border-solid text-xxs hover:text-theme-indigo hover:bg-transparent${
