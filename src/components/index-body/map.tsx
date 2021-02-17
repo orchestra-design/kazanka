@@ -55,7 +55,7 @@ export function Map({ layers, highlights }) {
           }}
         />
       ) : null}
-      {highlights.map((h) =>
+      {(highlights || []).map((h) =>
         get(h, 'highlightsid') !== undefined ? (
           <div
             key={h.highlightsid}
