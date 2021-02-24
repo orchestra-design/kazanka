@@ -89,7 +89,7 @@ export function Body({ body, faq, layers, highlights }) {
               <section
                 key="map"
                 id="map"
-                className="w-full max-w-5xl pt-12 mx-auto md:px-8"
+                className="w-full max-w-4xl pt-12 mx-auto md:px-8"
               >
                 <Map layers={layers} highlights={highlights} />
               </section>

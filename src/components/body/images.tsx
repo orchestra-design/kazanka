@@ -1,13 +1,14 @@
 import * as React from 'react'
 import * as uuid from 'uuid/v1'
 import { css } from '@emotion/core'
+import { get } from 'lodash'
 
-// import { HTML } from '../html/index'
 import If from '../if/index'
 import { Img } from '../img/index'
 import { DescriptionContainer } from './styles'
+import { HTML } from '../html/index'
 
-export function Images({ items = [] }) {
+export function Images({ items = [] }: { items: any[] }) {
   const [current, setCurrent] = React.useState<number>(0)
 
   const handlePrev = React.useCallback(() => {
@@ -62,16 +63,20 @@ export function Images({ items = [] }) {
                 </div>
               </If>
             </div>
-            <If predicate={items.length > 1}>
-              <div className="px-8 pt-2 text-xxs">
-                {current + 1} / {items.length}
-              </div>
-            </If>
-            <If predicate={!!imgcaption}>
-              <DescriptionContainer className="px-8 pt-2">
-                {imgcaption}
-              </DescriptionContainer>
-            </If>
+            <div className="flex flex-row flex-no-wrap w-full max-w-3xl mx-auto">
+              <If predicate={items.length > 1}>
+                <div className="p-4 md:w-1/4 text-xxs">
+                  {current + 1} / {items.length}
+                </div>
+              </If>
+              <If predicate={!!get(imgcaption, 'html')}>
+                <DescriptionContainer className="p-4 ml-auto md:w-3/4">
+                  <HTML>
+                    {imgcaption.html}
+                  </HTML>
+                </DescriptionContainer>
+              </If>
+            </div>
           </div>
         )
       })}

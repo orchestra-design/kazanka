@@ -8,9 +8,11 @@ import If from '../if/index'
 import { ImageCaption } from '../body/image-caption'
 import { TextContainer } from '../body/styles'
 import { ImagePopup } from './image-popup'
+import ToTop from '../to-top/index'
 
 export function PrincipsBody({ data }) {
-  const ref = React.useRef<HTMLElement | null>(null)
+  const ref = React.useRef<HTMLElement>(null)
+  const fbRef = React.useRef<HTMLElement>(null)
   const [opened, setOpened] = React.useState<number>(0)
   const [linked, setLinked] = React.useState<boolean>(false)
 
@@ -45,8 +47,10 @@ export function PrincipsBody({ data }) {
   }, [])
 
   return (
+    <>
     <main className="min-h-screen">
       <section
+        ref={fbRef}
         className={`
           font-sans
           bg-contain bg-no-repeat
@@ -112,5 +116,7 @@ export function PrincipsBody({ data }) {
         </React.Fragment>
       ))}
     </main>
+    <ToTop refs={fbRef} />
+    </>
   )
 }

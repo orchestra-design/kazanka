@@ -19,6 +19,7 @@ module.exports = {
         red: '#EE5658',
         teal: '#29B2C0',
         yellow: '#F8E173',
+        'yellow-green': '#D9DC81',
       },
 
       transparent: 'transparent',
@@ -332,6 +333,7 @@ module.exports = {
     minHeight: {
       0: '0',
       full: '100%',
+      'screen-2/3': '66.66666vh',
       screen: '100vh',
     },
     minWidth: {

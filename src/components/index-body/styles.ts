@@ -9,10 +9,6 @@ export const mainStyles = css`
   ${tw`w-full `};
 `
 
-export const jumboStyles = css`
-  ${tw`relative flex items-center justify-center w-full md:h-screen`};
-`
-
 export const sectionStyles = css`
   ${tw`relative pb-20 my-10 `};
 

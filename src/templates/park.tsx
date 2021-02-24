@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { Layout } from '../components/layout/index'
 import { ParkBody } from '../components/park-body/index'
 
-function ManzaraParkPage({ data }) {
+function ParkPage({ data }) {
   return (
     <Layout>
       <ParkBody data={data.prismicPark.data} />
@@ -13,10 +13,17 @@ function ManzaraParkPage({ data }) {
 }
 
 export const pageQuery = graphql`
-  query ManzaraParkQuery($uid: String!) {
+  query ParkQuery($uid: String!) {
     prismicPark(uid: { eq: $uid }) {
       data {
         title {
+          text
+        }
+        subtitle {
+          text
+        }
+        info {
+          html
           text
         }
         color
@@ -46,7 +53,9 @@ export const pageQuery = graphql`
                   }
                 }
               }
-              imgcaption
+              imgcaption {
+                html
+              }
               imgvideo {
                 html
               }
@@ -130,4 +139,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default ManzaraParkPage
+export default ParkPage
