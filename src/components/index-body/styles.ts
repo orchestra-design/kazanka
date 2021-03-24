@@ -186,7 +186,7 @@ export const digitsStyles = css`
 `
 
 export const smallDigitsStyles = css`
-  ${tw`relative flex flex-row flex-wrap items-center justify-center w-full max-w-5xl px-4 -mx-8 md:flex-no-wrap`};
+  ${tw`relative flex flex-row flex-wrap items-start justify-center w-full max-w-5xl px-4 -mx-8 md:flex-no-wrap`};
 
   & > div {
     ${tw`mx-0 mb-10 text-center md:w-1/5`};
