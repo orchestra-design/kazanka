@@ -29,7 +29,7 @@ const LINKS = [
 export function Header() {
   const { parks } = useStaticQuery(graphql`
     query HeaderQuery {
-      parks: allPrismicPark {
+      parks: allPrismicPark(sort: {fields: data___orderid, order: ASC}) {
         nodes {
           data {
             title {

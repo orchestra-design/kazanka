@@ -1,5 +1,12 @@
 {
   "Main": {
+    "orderid": {
+      "type": "Number",
+      "config": {
+        "label": "orderid",
+        "placeholder": "number of order"
+      }
+    },
     "uid": {
       "type": "UID",
       "config": {
