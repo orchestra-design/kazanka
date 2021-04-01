@@ -70,7 +70,7 @@ export function Header() {
               <If predicate={opened}>
                 <ul
                   ref={ref}
-                  className="absolute left-0 flex flex-col"
+                  className="absolute left-0 flex flex-col md:left-auto md:right-0"
                   onMouseOver={() => toggle(true)}
                   onMouseLeave={() => toggle(false)}
                 >
