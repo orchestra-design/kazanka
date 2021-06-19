@@ -22,7 +22,7 @@ export default function ToTop({ refs }) {
   return (
     <If predicate={!get(el, 'isIntersecting')}>
       <div
-        className="fixed bottom-0 right-0 z-50 px-2 py-1 m-4 text-white border border-solid rounded-full cursor-pointer text-xxs border-theme-red bg-theme-red hover:text-theme-red hover:bg-transparent"
+        className="fixed bottom-0 right-0 z-50 h-8 w-8 flex items-center justify-center m-4 text-white border border-solid rounded-full cursor-pointer text-xxs border-theme-red bg-theme-red hover:text-theme-red hover:bg-transparent"
         onClick={handleToTop}
       >
         ↑

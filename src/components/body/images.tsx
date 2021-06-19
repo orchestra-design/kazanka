@@ -71,12 +71,26 @@ export function Images({ items = [] }: { items: any[] }) {
               </If>
               <If predicate={!!get(imgcaption, 'html')}>
                 <DescriptionContainer className="p-4 ml-auto md:w-3/4">
-                  <HTML>
-                    {imgcaption.html}
-                  </HTML>
+                  <HTML>{imgcaption.html}</HTML>
                 </DescriptionContainer>
               </If>
             </div>
+            <If predicate={items.length > 1}>
+              <div className="flex flex-row p-4">
+                <div
+                  className="h-8 w-8 flex items-center justify-center text-white border border-solid rounded-full cursor-pointer text-xxs border-theme-red bg-theme-red hover:text-theme-red hover:bg-transparent"
+                  onClick={handlePrev}
+                >
+                  ←
+                </div>
+                <div
+                  className="h-8 w-8 ml-4 flex items-center justify-center text-white border border-solid rounded-full cursor-pointer text-xxs border-theme-red bg-theme-red hover:text-theme-red hover:bg-transparent"
+                  onClick={handleNext}
+                >
+                  →
+                </div>
+              </div>
+            </If>
           </div>
         )
       })}
