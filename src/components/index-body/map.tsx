@@ -92,7 +92,7 @@ export function Map({ layers, highlights }) {
           />
         </div>
         {isLoading ? (
-          <div className="absolute inset-0 bg-theme-blue opacity-50 text-white flex items-center justify-center text-xs">
+          <div className="absolute inset-0 bg-gray-200 opacity-50 text-theme-indigo flex items-center justify-center text-xs">
             Загрузка...
           </div>
         ) : null}
