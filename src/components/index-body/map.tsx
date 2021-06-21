@@ -17,7 +17,7 @@ export function Map({ layers, highlights }) {
     null
   )
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
-  const isMd = useMedia('min-width: 768px')
+  const isMd = useMedia('(min-width: 768px)')
 
   const handleClick = React.useCallback((num) => {
     const link = get(
