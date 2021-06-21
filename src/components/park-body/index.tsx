@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as uuid from 'uuid/v1'
 import { get, isArray, size } from 'lodash'
+import { navigateTo } from 'gatsby-link'
 
 import { HTML } from '../html/index'
 import If from '../if/index'
@@ -14,7 +15,7 @@ import { LinkToForm } from '../body/linktoform'
 import { TextContainer } from '../body/styles'
 import ToTop from '../to-top/index'
 
-export function ParkBody({ data }) {
+export function ParkBody({ data, parks }) {
   const title = get(data, 'title.text')
   const subTitle = get(data, 'subtitle.text')
   const info = get(data, 'info.html')
@@ -25,6 +26,40 @@ export function ParkBody({ data }) {
   const color = get(data, 'color') || 'yellow'
 
   const ref = React.useRef<HTMLDivElement>(null)
+
+  const handleClick = React.useCallback(
+    (num) => {
+      const index =
+        parks.findIndex(
+          (p) => get(p, 'data.orderid') === get(data, 'orderid')
+        ) + num
+      const link = get(parks, [
+        index < 0 ? parks.length - 1 : index > parks.length - 1 ? 0 : index,
+        'uid',
+      ])
+
+      if (link) {
+        navigateTo(`/${link}`)
+      }
+    },
+    [parks]
+  )
+
+  const getTitle = React.useCallback(
+    (num) => {
+      const index =
+        parks.findIndex(
+          (p) => get(p, 'data.orderid') === get(data, 'orderid')
+        ) + num
+      return get(parks, [
+        index < 0 ? parks.length - 1 : index > parks.length - 1 ? 0 : index,
+        'data',
+        'title',
+        'text',
+      ])
+    },
+    [parks]
+  )
 
   return (
     <>
@@ -97,6 +132,24 @@ export function ParkBody({ data }) {
           </If>
         </section>
       </main>
+      <If predicate={true}>
+        <div className="flex flex-row p-4">
+          <div
+            title={getTitle(-1)}
+            className="h-8 w-8 flex items-center justify-center text-white border border-solid rounded-full cursor-pointer text-xxs border-theme-red bg-theme-red hover:text-theme-red hover:bg-transparent"
+            onClick={() => handleClick(-1)}
+          >
+            ←
+          </div>
+          <div
+            title={getTitle(1)}
+            className="h-8 w-8 ml-4 flex items-center justify-center text-white border border-solid rounded-full cursor-pointer text-xxs border-theme-red bg-theme-red hover:text-theme-red hover:bg-transparent"
+            onClick={() => handleClick(1)}
+          >
+            →
+          </div>
+        </div>
+      </If>
       <ToTop refs={ref} />
     </>
   )

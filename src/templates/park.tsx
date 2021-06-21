@@ -7,7 +7,7 @@ import { ParkBody } from '../components/park-body/index'
 function ParkPage({ data }) {
   return (
     <Layout>
-      <ParkBody data={data.prismicPark.data} />
+      <ParkBody data={data.prismicPark.data} parks={data.allPrismicPark.nodes} />
     </Layout>
   )
 }
@@ -16,6 +16,7 @@ export const pageQuery = graphql`
   query ParkQuery($uid: String!) {
     prismicPark(uid: { eq: $uid }) {
       data {
+        orderid
         title {
           text
         }
@@ -134,6 +135,17 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+    }
+    allPrismicPark(sort: {fields: data___orderid, order: ASC}) {
+      nodes {
+        data {
+          orderid
+          title {
+            text
+          }
+        }
+        uid
       }
     }
   }

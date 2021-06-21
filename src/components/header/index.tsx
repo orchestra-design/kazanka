@@ -49,7 +49,7 @@ export function Header() {
   })
 
   return (
-    <header className="absolute inset-0 bottom-auto z-10 p-4">
+    <header className="absolute inset-0 bottom-auto z-50 p-4">
       <nav className="flex flex-row">
         <Link href="/" activeClassName="hidden">
           ← На главную страницу
