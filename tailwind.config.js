@@ -11,6 +11,7 @@ module.exports = {
     },
     colors: {
       theme: {
+        white: '#FFFFFF',
         blue: '#265E8E',
         green: '#11A193',
         indigo: '#0D134A',
@@ -18,6 +19,7 @@ module.exports = {
         red: '#EE5658',
         teal: '#29B2C0',
         yellow: '#F8E173',
+        'yellow-green': '#D9DC81',
       },
 
       transparent: 'transparent',
@@ -156,9 +158,10 @@ module.exports = {
       48: '12rem',
       56: '14rem',
       64: '16rem',
+      '1/5': '20%',
+      '1/4': '25%',
       '1/3': '33.333334%',
       '2/3': '66.666667%',
-      '1/4': '25%',
       '3/4': '75%',
     },
     backgroundColor: (theme) => theme('colors'),
@@ -330,6 +333,7 @@ module.exports = {
     minHeight: {
       0: '0',
       full: '100%',
+      'screen-2/3': '66.66666vh',
       screen: '100vh',
     },
     minWidth: {

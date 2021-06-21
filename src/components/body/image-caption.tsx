@@ -6,7 +6,7 @@ import { HTML } from '../html/index'
 import If from '../if/index'
 import { Img } from '../img/index'
 
-import { TextContainer } from './styles'
+import { DescriptionContainer } from './styles'
 
 export function ImageCaption({ primary, label }) {
   if (!primary) return null
@@ -16,15 +16,15 @@ export function ImageCaption({ primary, label }) {
   const isRight = label === 'imageright'
 
   return (
-    <section className="w-full max-w-3xl mx-auto mb-12 flex flex-col md:flex-row flex-no-wrap px-8">
+    <section className="flex flex-col flex-no-wrap w-full max-w-3xl px-8 mx-auto mb-12 md:flex-row">
       <div className="md:w-1/4">
         <If predicate={!isRight && !!image}>
           <Img src={image} />
         </If>
         <If predicate={isRight && !!text}>
-          <TextContainer>
-            <HTML className="md:pr-4 pt-4 md:pt-0">{text}</HTML>
-          </TextContainer>
+          <DescriptionContainer>
+            <HTML className="pt-4 md:pr-4 md:pt-0">{text}</HTML>
+          </DescriptionContainer>
         </If>
       </div>
       <div className="md:w-3/4">
@@ -32,9 +32,9 @@ export function ImageCaption({ primary, label }) {
           <Img src={image} />
         </If>
         <If predicate={!isRight && !!text}>
-          <TextContainer>
-            <HTML className="md:pl-4 pt-4 md:pt-0">{text}</HTML>
-          </TextContainer>
+          <DescriptionContainer>
+            <HTML className="pt-4 md:pl-4 md:pt-0">{text}</HTML>
+          </DescriptionContainer>
         </If>
       </div>
     </section>

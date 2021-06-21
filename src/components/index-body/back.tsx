@@ -8,13 +8,13 @@ import { Shape } from '../shape/index'
 
 // import { BackVideo } from './back-video'
 
-export function Back({ image, color = '#fff' }) {
+export function Back({ image, color = 'white' }) {
   // const isWide = useMedia('(min-width: 768px)')
 
   return (
     <div
       css={css`
-        ${tw`absolute inset-0 overflow-hidden `};
+        ${tw`absolute inset-0 overflow-hidden`};
       `}
     >
       <div
@@ -36,12 +36,13 @@ export function Back({ image, color = '#fff' }) {
         {/* isWide && <BackVideo video={video} /> */}
         <div
           css={css`
-            ${tw`absolute z-10 w-full `};
+            ${tw`absolute z-10 w-full text-theme-${color}`};
             bottom: 0;
             transform: translateY(20%);
           `}
+          className={`text-theme-${color}`}
         >
-          <Shape color={color} />
+          <Shape />
         </div>
       </div>
     </div>

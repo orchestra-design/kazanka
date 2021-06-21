@@ -1,21 +1,12 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { get } from 'lodash'
 
 import { IndexBody } from '../components/index-body/index'
 import { Layout } from '../components/layout/index'
 
 function IndexPage({ data }) {
-  const links = get(data.prismicIndex, 'data.body', []).find(
-    ({ __typename, primary }) =>
-      __typename === 'PrismicIndexBodyText' && primary.name === 'links'
-  )
-  const copy = get(data.prismicIndex, 'data.body', []).find(
-    ({ __typename, primary }) =>
-      __typename === 'PrismicIndexBodyText' && primary.name === 'copy'
-  )
   return (
-    <Layout links={links} copy={copy}>
+    <Layout>
       <IndexBody data={data.prismicIndex.data} />
     </Layout>
   )
@@ -31,6 +22,37 @@ export const pageQuery = graphql`
           }
           question {
             text
+          }
+        }
+        layers {
+          layerid
+          layerimage {
+            alt
+            url
+            dimensions {
+              height
+              width
+            }
+          }
+          layername {
+            text
+          }
+        }
+        highlights {
+          highlightsid
+          highlightsimage {
+            alt
+            dimensions {
+              width
+              height
+            }
+            url
+          }
+          highlightsname {
+            text
+          }
+          parklink {
+            uid
           }
         }
         body {
@@ -123,6 +145,16 @@ export const pageQuery = graphql`
         video {
           url
         }
+      }
+    }
+    allPrismicPark {
+      nodes {
+        data {
+          title {
+            text
+          }
+        }
+        uid
       }
     }
   }

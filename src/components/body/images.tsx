@@ -1,13 +1,14 @@
 import * as React from 'react'
 import * as uuid from 'uuid/v1'
 import { css } from '@emotion/core'
+import { get } from 'lodash'
 
-// import { HTML } from '../html/index'
 import If from '../if/index'
 import { Img } from '../img/index'
 import { DescriptionContainer } from './styles'
+import { HTML } from '../html/index'
 
-export function Images({ items = [] }) {
+export function Images({ items = [] }: { items: any[] }) {
   const [current, setCurrent] = React.useState<number>(0)
 
   const handlePrev = React.useCallback(() => {
@@ -20,8 +21,6 @@ export function Images({ items = [] }) {
     setCurrent((prev) => (prev + 1) % items.length)
   }, [])
 
-  console.log(current)
-
   if (items.length === 0 || !items[current]) return null
 
   return (
@@ -29,12 +28,12 @@ export function Images({ items = [] }) {
       {[items[current]].map(({ imgimage, imgcaption }) => {
         return (
           <div key={uuid()}>
-            <div className="relative cursor-pointer">
+            <div className="relative">
               <Img className="w-full" src={imgimage} />
               <If predicate={items.length > 1}>
                 <div className="absolute inset-0 flex flex-row flex-no-wrap items-center justify-center text-xl text-white">
                   <div
-                    className="flex items-center justify-start flex-1 h-full p-4 opacity-0 hover:opacity-100"
+                    className="flex items-center justify-start flex-1 h-full p-4 opacity-0 cursor-pointer hover:opacity-100"
                     css={css`
                       transition: opacity 200ms ease-in-out;
                       background: linear-gradient(
@@ -48,7 +47,7 @@ export function Images({ items = [] }) {
                     {'←'}
                   </div>
                   <div
-                    className="flex items-center justify-end flex-1 h-full p-4 opacity-0 hover:opacity-100"
+                    className="flex items-center justify-end flex-1 h-full p-4 opacity-0 cursor-pointer hover:opacity-100"
                     css={css`
                       transition: opacity 200ms ease-in-out;
                       background: linear-gradient(
@@ -64,16 +63,18 @@ export function Images({ items = [] }) {
                 </div>
               </If>
             </div>
-            <If predicate={items.length > 1}>
-              <div className="px-8 pt-2 text-xxs">
-                {current + 1} / {items.length}
-              </div>
-            </If>
-            <If predicate={!!imgcaption}>
-              <DescriptionContainer className="px-8 pt-2">
-                {imgcaption}
-              </DescriptionContainer>
-            </If>
+            <div className="flex flex-row flex-no-wrap w-full max-w-3xl mx-auto">
+              <If predicate={items.length > 1}>
+                <div className="p-4 md:w-1/4 text-xxs">
+                  {current + 1} / {items.length}
+                </div>
+              </If>
+              <If predicate={!!get(imgcaption, 'html')}>
+                <DescriptionContainer className="p-4 ml-auto md:w-3/4">
+                  <HTML>{imgcaption.html}</HTML>
+                </DescriptionContainer>
+              </If>
+            </div>
           </div>
         )
       })}

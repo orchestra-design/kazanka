@@ -6,10 +6,7 @@ import tw from 'tailwind.macro'
 import { Frame } from '../frame/index'
 
 const frameStyles = css`
-  ${tw`
-    px-2
-    w-20
-  `};
+  ${tw`w-20 px-2 `};
 `
 
 const lightStyles = css`
@@ -25,13 +22,8 @@ export function Title({ title }: Readonly<{ title: string }>) {
   return (
     <div
       css={css`
-        ${tw`
-          flex flex-row flex-no-wrap
-          items-center justify-center
-          relative
-          md:mt-0
-        `};
-        margin-top: 6rem;      
+        ${tw`relative flex flex-row flex-no-wrap items-center justify-center  md:mt-0`};
+        margin-top: 6rem;
       `}
     >
       <Frame
@@ -43,16 +35,8 @@ export function Title({ title }: Readonly<{ title: string }>) {
       />
       <h1
         css={css`
-        ${tw`
-          flex flex-col
-          md:flex-row md:flex-no-wrap
-          items-center justify-center
-          text-xl md:text-2xl
-          leading-none
-          uppercase
-          text-white
-        `};
-      `}
+          ${tw`flex flex-col items-center justify-center text-xl leading-none text-white uppercase  md:flex-row md:flex-no-wrap md:text-2xl`};
+        `}
       >
         <span
           css={css`
@@ -61,13 +45,14 @@ export function Title({ title }: Readonly<{ title: string }>) {
         >
           {first} {second}
         </span>
-        <span css={css`
-        ${tw`font-bold md:pt-1`};
-        letter-spacing: 0.15em;
-        @media (min-width: 768px) {
-          letter-spacing: 0.02em;
-        }
-      `}
+        <span
+          css={css`
+            ${tw`font-bold md:pt-1`};
+            letter-spacing: 0.15em;
+            @media (min-width: 768px) {
+              letter-spacing: 0.02em;
+            }
+          `}
         >
           {third}
         </span>

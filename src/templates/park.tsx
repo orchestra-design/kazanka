@@ -1,57 +1,33 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { get } from 'lodash'
 
 import { Layout } from '../components/layout/index'
 import { ParkBody } from '../components/park-body/index'
 
-function ManzaraParkPage({ data }) {
-  const links = get(data.prismicIndex, 'data.body', []).find(
-    ({ __typename, primary }) =>
-      __typename === 'PrismicIndexBodyText' && primary.name === 'links'
-  )
-  const copy = get(data.prismicIndex, 'data.body', []).find(
-    ({ __typename, primary }) =>
-      __typename === 'PrismicIndexBodyText' && primary.name === 'copy'
-  )
+function ParkPage({ data }) {
   return (
-    <Layout links={links} copy={copy}>
-      <ParkBody data={data.prismicPark.data} />
+    <Layout>
+      <ParkBody data={data.prismicPark.data} parks={data.allPrismicPark.nodes} />
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  query ManzaraParkQuery {
-    prismicIndex(uid: { eq: "next" }) {
+  query ParkQuery($uid: String!) {
+    prismicPark(uid: { eq: $uid }) {
       data {
-        body {
-          __typename
-          ... on PrismicIndexBodyText {
-            primary {
-              name
-              text {
-                html
-              }
-            }
-            items {
-              link {
-                url
-              }
-              name
-              richtext {
-                html
-              }
-            }
-          }
-        }
-      }
-    }
-    prismicPark(uid: { eq: "manzara" }) {
-      data {
+        orderid
         title {
           text
         }
+        subtitle {
+          text
+        }
+        info {
+          html
+          text
+        }
+        color
         image {
           url
           alt
@@ -78,7 +54,9 @@ export const pageQuery = graphql`
                   }
                 }
               }
-              imgcaption
+              imgcaption {
+                html
+              }
               imgvideo {
                 html
               }
@@ -138,13 +116,20 @@ export const pageQuery = graphql`
               }
             }
           }
-          ... on PrismicParkBodyTwoColumnText {
-            slice_label
+          # ... on PrismicParkBodyTwoColumnText {
+          #   slice_label
+          #   items {
+          #     leftcol {
+          #       html
+          #     }
+          #     righttext {
+          #       html
+          #     }
+          #   }
+          # }
+          ... on PrismicParkBodyDigits {
             items {
-              leftcol {
-                html
-              }
-              righttext {
+              richtext {
                 html
               }
             }
@@ -152,7 +137,18 @@ export const pageQuery = graphql`
         }
       }
     }
+    allPrismicPark(sort: {fields: data___orderid, order: ASC}) {
+      nodes {
+        data {
+          orderid
+          title {
+            text
+          }
+        }
+        uid
+      }
+    }
   }
 `
 
-export default ManzaraParkPage
+export default ParkPage

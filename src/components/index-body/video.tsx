@@ -9,7 +9,6 @@ import YouTube from 'react-youtube'
 import { HTML } from '../html/index'
 // import { Img } from '../img/index'
 
-import * as back from './back.svg'
 import {
   videoFrameStyles,
   // headingStyles,
@@ -55,9 +54,6 @@ export function Video({ items, title }) {
     <section
       css={css`
         ${tw`w-full h-full px-8 py-4 mt-16 bg-no-repeat bg-contain bg-theme-yellow md:py-12`};
-        @media (min-width: 768px) {
-          background-image: url(${back});
-        }
       `}
     >
       <div

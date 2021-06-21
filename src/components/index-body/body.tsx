@@ -23,8 +23,9 @@ import {
   copyStyles,
   digitsStyles,
 } from './styles'
+import { Map } from './map'
 
-export function Body({ body, faq }) {
+export function Body({ body, faq, layers, highlights }) {
   if (!body) return null
 
   // const [popupOpened, togglePopup] = useToggle(false)
@@ -83,16 +84,17 @@ export function Body({ body, faq }) {
         }
         if (__typename === 'PrismicIndexBodyText') {
           if (!primary) return null
-          // if (primary.name === 'map') {
-          //   return (
-          //     <Map
-          //       key={uuid()}
-          //       text={get(primary, 'text.html')}
-          //       togglePopup={togglePopup}
-          //       opened={popupOpened}
-          //     />
-          //   )
-          // }
+          if (primary.name === 'map') {
+            return (
+              <section
+                key="map"
+                id="map"
+                className="w-full max-w-4xl pt-12 mx-auto md:px-8"
+              >
+                <Map layers={layers} highlights={highlights} />
+              </section>
+            )
+          }
           if (primary.name === 'links') {
             return null
           }
@@ -102,7 +104,7 @@ export function Body({ body, faq }) {
           if (primary.name === 'digits' && items && items.length) {
             return (
               <div
-                className="bg-theme-yellow flex items-center justify-center mt-12"
+                className="flex items-center justify-center mt-12 bg-theme-yellow"
                 key={uuid()}
               >
                 <div css={digitsStyles}>
